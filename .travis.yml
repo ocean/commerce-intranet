@@ -12,14 +12,15 @@ env:
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
   matrix:
     - RELEASE=stable
-    - RELEASE=dev
+    # - RELEASE=dev
 
 matrix:
   allow_failures:
     - hhvm: RELEASE=stable
-    - hhvm: RELEASE=dev
+    # - hhvm: RELEASE=dev
 
 before_install:
+  - env
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
   - phpenv config-rm xdebug.ini
   - composer --verbose self-update
