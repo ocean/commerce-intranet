@@ -32,6 +32,6 @@ script:
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   - ./../vendor/bin/phpunit -c core --exclude-group Composer
   - ./../vendor/bin/drush status
-  - ./../vendor/bin/drupal init
-  - ./../vendor/bin/drupal list
-  - ./../vendor/bin/drupal self-update
+  - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
+  # - ./../vendor/bin/drupal list
+  # - ./../vendor/bin/drupal self-update
