@@ -6,6 +6,9 @@ web/modules/contrib
 web/themes/contrib
 web/profiles/contrib
 
+# Ignore dependency Git directories to avoid submodules
+/vendor/**/.git
+
 # Ignore Drupal's file directory
 web/sites/default/files
 

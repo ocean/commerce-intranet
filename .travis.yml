@@ -13,9 +13,11 @@ env:
   matrix:
     - RELEASE=stable
     - RELEASE=dev
-    allow_failures:
-      - hhvm: RELEASE=stable
-      - hhvm: RELEASE=dev
+
+matrix:
+  allow_failures:
+    - hhvm: RELEASE=stable
+    - hhvm: RELEASE=dev
 
 before_install:
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
