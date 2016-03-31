@@ -2,8 +2,8 @@ language: php
 php:
   # - 5.6
   - 7.0
-  - nightly
-  # - hhvm
+  # - nightly
+  - hhvm
 
 sudo: false
 
@@ -16,7 +16,7 @@ cache:
 
 env:
   global:
-    - SIMPLETEST_DB=sqlite://tmp/site.sqlite
+    - SIMPLETEST_DB=mysql://root:@127.0.0.1:3306/drupal
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
   matrix:
     - RELEASE=stable
@@ -39,11 +39,11 @@ install:
 before_script:
   - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.1.x-dev; fi;
   - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
+  - openssl rand -hex 16 > admin_pw.txt
 
 script:
   - cd $TRAVIS_BUILD_DIR/web
-  # - ./../vendor/bin/drush site-install --verbose --yes --db-url=sqlite://tmp/site.sqlite
-  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal
+  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt)
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
   - sleep 3
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
