@@ -29,10 +29,7 @@ matrix:
 
 before_install:
   - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
-  - ls -al ~/.phpenv/versions/
-  - ls -al ~/.phpenv/versions/hhvm/
-  - ls -al ~/.phpenv/versions/hhvm/etc
-  - if [[ $TRAVIS_PHP_VERSION = hhvm ]]; then echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/hhvm/server.ini; fi;
+  - if [[ $TRAVIS_PHP_VERSION = hhvm ]]; then echo 'sendmail_path = /bin/true' >> /etc/hhvm/server.ini; fi;
   - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then phpenv config-rm xdebug.ini; fi;
   - composer --verbose self-update
   - composer --version
