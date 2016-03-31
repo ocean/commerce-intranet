@@ -20,7 +20,7 @@ env:
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
   matrix:
     - RELEASE=stable
-    # - RELEASE=dev
+    - RELEASE=dev
 
 matrix:
   allow_failures:
@@ -29,9 +29,9 @@ matrix:
 
 before_install:
   - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
+  - hhvm -m run --version --modules
   - if [[ $TRAVIS_PHP_VERSION = hhvm ]]; then sudo echo 'sendmail_path = /bin/true' >> /etc/hhvm/server.ini; fi;
   - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then phpenv config-rm xdebug.ini; fi;
-  - hhvm -m run --version --modules
   - composer --verbose self-update
   - composer --version
 
