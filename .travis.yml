@@ -1,9 +1,9 @@
 language: php
 php:
   # - 5.6
-  # - 7.0
-  # - nightly
-  - hhvm
+  - 7.0
+  - nightly
+  # - hhvm
 
 sudo: false
 
@@ -20,7 +20,7 @@ env:
     - SIMPLETEST_BASE_URL="http://127.0.0.1:8080"
   matrix:
     - RELEASE=stable
-    # - RELEASE=dev
+    - RELEASE=dev
 
 matrix:
   allow_failures:
