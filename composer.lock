@@ -8,6 +8,68 @@
     "content-hash": "4dd6e1a50ea992718779c799f497892d",
     "packages": [
         {
+            "name": "alchemy/zippy",
+            "version": "0.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alchemy-fr/Zippy.git",
+                "reference": "92c773f7bbe47fdb30c61dbaea3dcbf4dd13a40a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alchemy-fr/Zippy/zipball/92c773f7bbe47fdb30c61dbaea3dcbf4dd13a40a",
+                "reference": "92c773f7bbe47fdb30c61dbaea3dcbf4dd13a40a",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/collections": "~1.0",
+                "ext-mbstring": "*",
+                "php": ">=5.3.3",
+                "symfony/filesystem": "^2.0.5|^3.0",
+                "symfony/process": "^2.1|^3.0"
+            },
+            "require-dev": {
+                "ext-zip": "*",
+                "guzzle/guzzle": "~3.0",
+                "phpunit/phpunit": "^4.0|^5.0",
+                "symfony/finder": "^2.0.5|^3.0"
+            },
+            "suggest": {
+                "ext-zip": "To use the ZipExtensionAdapter",
+                "guzzle/guzzle": "To use the GuzzleTeleporter"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alchemy\\Zippy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alchemy",
+                    "email": "dev.team@alchemy.fr",
+                    "homepage": "http://www.alchemy.fr/"
+                }
+            ],
+            "description": "Zippy, the archive manager companion",
+            "keywords": [
+                "bzip",
+                "compression",
+                "tar",
+                "zip"
+            ],
+            "time": "2016-02-15 22:46:40"
+        },
+        {
             "name": "codegyre/robo",
             "version": "0.7.1",
             "source": {
@@ -64,16 +126,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.0.23",
+            "version": "v1.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e"
+                "reference": "1cf7cc4b89d5e8549bbb7d6ab1de75da13d27988"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6213d900e92647831f7a406d5c530ea1f3d4360e",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/1cf7cc4b89d5e8549bbb7d6ab1de75da13d27988",
+                "reference": "1cf7cc4b89d5e8549bbb7d6ab1de75da13d27988",
                 "shasum": ""
             },
             "require": {
@@ -95,8 +157,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -111,12 +173,14 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
                 "SMF",
                 "Thelia",
@@ -158,7 +222,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-01-27 12:54:22"
+            "time": "2016-04-05 11:42:46"
         },
         {
             "name": "composer/semver",
@@ -699,22 +763,23 @@
         },
         {
             "name": "drupal-composer/drupal-scaffold",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-scaffold.git",
-                "reference": "c780202f0f722447e3e3c8e0012a91823b2a0e39"
+                "reference": "13bd565b1468c27b97060f3c62175d12a5e1db7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/c780202f0f722447e3e3c8e0012a91823b2a0e39",
-                "reference": "c780202f0f722447e3e3c8e0012a91823b2a0e39",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/13bd565b1468c27b97060f3c62175d12a5e1db7d",
+                "reference": "13bd565b1468c27b97060f3c62175d12a5e1db7d",
                 "shasum": ""
             },
             "require": {
                 "codegyre/robo": "^0.7.1",
                 "composer-plugin-api": "^1.0.0",
                 "ext-curl": "*",
+                "ext-zlib": "*",
                 "guzzlehttp/guzzle": "~6.1",
                 "pear/archive_tar": "~1.0",
                 "php": ">=5.4.5"
@@ -740,7 +805,7 @@
                 "GPL-2.0+"
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
-            "time": "2016-03-10 17:48:12"
+            "time": "2016-04-11 07:58:02"
         },
         {
             "name": "drupal/admin_toolbar",
@@ -816,19 +881,20 @@
         },
         {
             "name": "drupal/console",
-            "version": "0.10.14",
+            "version": "0.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hechoendrupal/DrupalConsole.git",
-                "reference": "3bad06081c1b3492096426a214d5aa36a67a993c"
+                "reference": "7a5c0f539211a40954b50d0478b731ce4d12bd16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hechoendrupal/DrupalConsole/zipball/3bad06081c1b3492096426a214d5aa36a67a993c",
-                "reference": "3bad06081c1b3492096426a214d5aa36a67a993c",
+                "url": "https://api.github.com/repos/hechoendrupal/DrupalConsole/zipball/7a5c0f539211a40954b50d0478b731ce4d12bd16",
+                "reference": "7a5c0f539211a40954b50d0478b731ce4d12bd16",
                 "shasum": ""
             },
             "require": {
+                "alchemy/zippy": "0.3.5",
                 "composer/installers": "~1.0",
                 "gabordemooij/redbean": "@stable",
                 "guzzlehttp/guzzle": "~6.1",
@@ -896,20 +962,20 @@
                 "drupal",
                 "symfony"
             ],
-            "time": "2016-03-21 06:26:53"
+            "time": "2016-04-07 20:42:09"
         },
         {
             "name": "drupal/core",
-            "version": "8.1.0-beta2",
+            "version": "8.1.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "3681a6093378ca8efea16e308898bd1d60018472"
+                "reference": "e0162e1133024a4be4e6d44c731e8ffd02bc502e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/3681a6093378ca8efea16e308898bd1d60018472",
-                "reference": "3681a6093378ca8efea16e308898bd1d60018472",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/e0162e1133024a4be4e6d44c731e8ffd02bc502e",
+                "reference": "e0162e1133024a4be4e6d44c731e8ffd02bc502e",
                 "shasum": ""
             },
             "require": {
@@ -1065,7 +1131,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-03-23 02:19:35"
+            "time": "2016-04-06 20:58:23"
         },
         {
             "name": "drush/drush",
@@ -1682,16 +1748,16 @@
         },
         {
             "name": "masterminds/html5",
-            "version": "2.1.2",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Masterminds/html5-php.git",
-                "reference": "8f782e0f01a6e33a319bdc8f6de9cfd6569979a4"
+                "reference": "cb1ce51f817af9bbf400c88e8dcebcbf9a097077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/8f782e0f01a6e33a319bdc8f6de9cfd6569979a4",
-                "reference": "8f782e0f01a6e33a319bdc8f6de9cfd6569979a4",
+                "url": "https://api.github.com/repos/Masterminds/html5-php/zipball/cb1ce51f817af9bbf400c88e8dcebcbf9a097077",
+                "reference": "cb1ce51f817af9bbf400c88e8dcebcbf9a097077",
                 "shasum": ""
             },
             "require": {
@@ -1701,7 +1767,7 @@
             "require-dev": {
                 "phpunit/phpunit": "4.*",
                 "sami/sami": "~2.0",
-                "satooshi/php-coveralls": "0.6.*"
+                "satooshi/php-coveralls": "1.0.*"
             },
             "type": "library",
             "extra": {
@@ -1743,7 +1809,7 @@
                 "serializer",
                 "xml"
             ],
-            "time": "2015-06-07 08:43:18"
+            "time": "2016-04-11 13:54:57"
         },
         {
             "name": "nikic/php-parser",
@@ -4301,16 +4367,16 @@
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "22eb098958980fbbe6b9a06f209f5a4b496cc0c1"
+                "reference": "8bafa58574204bdff03c275d1d618aaa601588ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/22eb098958980fbbe6b9a06f209f5a4b496cc0c1",
-                "reference": "22eb098958980fbbe6b9a06f209f5a4b496cc0c1",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/8bafa58574204bdff03c275d1d618aaa601588ae",
+                "reference": "8bafa58574204bdff03c275d1d618aaa601588ae",
                 "shasum": ""
             },
             "require": {
@@ -4342,7 +4408,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-02-03 16:53:37"
+            "time": "2016-04-12 21:19:36"
         }
     ],
     "packages-dev": [
@@ -4738,16 +4804,16 @@
         },
         {
             "name": "mikey179/vfsStream",
-            "version": "v1.6.2",
+            "version": "v1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mikey179/vfsStream.git",
-                "reference": "fefd182fa739d4e23d9dc7c80d3344f528d600ab"
+                "reference": "c19925cd0390d3c436a0203ae859afa460d0474b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/fefd182fa739d4e23d9dc7c80d3344f528d600ab",
-                "reference": "fefd182fa739d4e23d9dc7c80d3344f528d600ab",
+                "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/c19925cd0390d3c436a0203ae859afa460d0474b",
+                "reference": "c19925cd0390d3c436a0203ae859afa460d0474b",
                 "shasum": ""
             },
             "require": {
@@ -4780,7 +4846,7 @@
             ],
             "description": "Virtual file system to mock the real file system in unit tests.",
             "homepage": "http://vfs.bovigo.org/",
-            "time": "2016-01-13 09:41:49"
+            "time": "2016-04-09 09:42:01"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
