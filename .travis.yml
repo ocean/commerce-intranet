@@ -49,7 +49,8 @@ script:
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer
   # Skipping Database tests to see if other tests pass on HHVM
-  - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog
+  - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
+  - curl -vv -F "file=@$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt" https://file.io/?expires=3
   - ./../vendor/bin/drush status
   # Skip Drupal Console ("drupal") testing as it's not supported with 8.1.x yet.
   # - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
