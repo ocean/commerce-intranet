@@ -5,7 +5,7 @@ php:
   # - nightly
   - hhvm
 
-sudo: false
+sudo: required
 
 addons:
   - mariadb: '10.1'
@@ -30,6 +30,7 @@ matrix:
 before_install:
   - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
   - if [[ $TRAVIS_PHP_VERSION != hhvm ]]; then phpenv config-rm xdebug.ini; fi;
+  - sudo update-ca-certificates --fresh
   - composer --verbose self-update
   - composer --version
 
@@ -45,6 +46,7 @@ script:
   - cd $TRAVIS_BUILD_DIR/web
   - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) standard install_configure_form.update_status_module='array(FALSE,FALSE)'
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
+  - phantomjs --webdriver=4444 &
   - sleep 3
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer
