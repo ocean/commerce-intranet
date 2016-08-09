@@ -54,8 +54,9 @@ script:
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # - curl -F "file=@build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt" https://file.io/?expires=3
   # Quick front page screenshot test
-  - phantomjs tests/phantomjs/front_page.js
-  - curl -F "file=@front_page*" https://file.io/?expires=3
+  - phantomjs ../tests/phantomjs/front_page.js
+  - curl -I -vvvv https://file.io/
+  - curl -F "file=@front_page*" --insecure https://file.io/?expires=3
   - ./../vendor/bin/drush status
   # Skip Drupal Console ("drupal") testing as it's not supported with 8.1.x yet.
   # - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
