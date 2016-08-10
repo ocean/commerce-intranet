@@ -3,7 +3,7 @@ php:
   # - 5.6
   - 7.0
   # - nightly
-  - hhvm
+  # - hhvm
 
 sudo: required
 
@@ -55,8 +55,8 @@ script:
   # - curl -F "file=@build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt" https://file.io/?expires=3
   # Quick front page screenshot test
   - phantomjs ../tests/phantomjs/front_page.js
-  - mv front_page.png front_page-$(date +"%Y%m%d")_$TRAVIS_JOB_NUMBER.png
-  - curl -F "file=@front_page-$(date +"%Y%m%d")_$TRAVIS_JOB_NUMBER.png" --insecure https://file.io/?expires=1w
+  - mv front_page.png front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png
+  - curl -F "file=@front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png" --insecure https://file.io/?expires=1w
   - ./../vendor/bin/drush status
   # Skip Drupal Console ("drupal") testing as it's not supported with 8.1.x yet.
   # - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
