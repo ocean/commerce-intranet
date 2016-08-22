@@ -29,7 +29,8 @@
         "drush/drush": "~8",
         "drupal/console": "~0.11",
         "drupal/adminimal_theme": "^8.1",
-        "drupal/admin_toolbar": "^8.1"
+        "drupal/admin_toolbar": "^8.1",
+        "drush/config-extra": "^1.0"
     },
     "require-dev": {
         "behat/mink": "~1.6",
@@ -39,7 +40,8 @@
         "mikey179/vfsStream": "~1.2",
         "phpunit/phpunit": "~4.8",
         "simpletest/simpletest": "^1.1",
-        "symfony/css-selector": "2.7.*"
+        "symfony/css-selector": "2.7.*",
+        "behat/mink-zombie-driver": "^1.4"
     },
     "conflict": {
         "drupal/drupal": "*"
