@@ -21,11 +21,12 @@
     - debug: var=git_new_revision
     - debug: var=this_thing
     - name: Check current directory
-      command: ls -al
+      command: pwd
       register: directory_listing
+    - debug: var=directory_listing
     - name: Run hi there
       command: echo "hi there"
-      when: directory_listing.stdout.find('internal') == -1
+      when: directory_listing.stdout.find('composer') != -1
 
   handlers:
     # - name: restart mysqld
