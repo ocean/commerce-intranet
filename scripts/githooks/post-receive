@@ -108,7 +108,7 @@ do
     echo
     echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '${after_push_cmd}'):"
     # eval $after_push_cmd || exit 1
-    $after_push_cmd "$oldrev $newrev $refname" 2>&1 | tee -a $logfile || exit 1
+    $after_push_cmd $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
   fi
 
 done
