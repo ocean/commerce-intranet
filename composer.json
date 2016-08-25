@@ -22,15 +22,16 @@
         }
     ],
     "require": {
-        "composer/installers": "^1.0.20",
+        "composer/installers": "^1.0.25",
         "drupal-composer/drupal-scaffold": "~2",
         "cweagans/composer-patches": "~1.0",
         "drupal/core": "8.1.*",
         "drush/drush": "~8",
         "drupal/console": "~0.11",
-        "drupal/adminimal_theme": "^8.1",
-        "drupal/admin_toolbar": "^8.1",
-        "drush/config-extra": "^1.0"
+        "drush/config-extra": "^1.0",
+        "drupal/admin_toolbar": "^1.16",
+        "drupal/adminimal_theme": "^1.1",
+        "drupal/devel": "1.x-dev"
     },
     "require-dev": {
         "behat/mink": "~1.6",
