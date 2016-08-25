@@ -95,9 +95,6 @@ do
     fi
   fi
 
-  # Make sure GIT_DIR and GIT_WORK_TREE is correctly set and 'export'ed. Otherwhise
-  # these two environment variables could also be passed as parameters to the git cli
-  # echo "githook: I will deploy '${deploy_branch}' branch of the '${DEPLOY_APP_NAME}' project to '${DEPLOY_ROOT}'"
   git checkout -f "${deploy_branch}" || exit 1
   git reset --hard "$deploy_newrev" || exit 1
 
@@ -107,7 +104,7 @@ do
   if [ ! -z "${after_push_cmd}" ]; then
     echo
     echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '${after_push_cmd}'):"
-    # eval $after_push_cmd || exit 1
+    # shellcheck disable=SC2086
     $after_push_cmd $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
   fi
 
