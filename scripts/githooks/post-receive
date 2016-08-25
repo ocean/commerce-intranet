@@ -63,7 +63,7 @@ after_push_cmd='scripts/deploy.sh'
 
 ip="$(hostname -i | cut -f1 -d ' ')"
 
-echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): Welcome to '$(hostname -f)' (${ip})"
+echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): Welcome to '$(tput -Tansi setaf 3)$(hostname -f)$(tput -Tansi sgr 0)' (${ip})"
 echo
 
 # Loop, because it is possible to push more than one branch at a time. (git push --all)
@@ -96,14 +96,16 @@ do
   fi
 
   git checkout -f "${deploy_branch}" || exit 1
+  tput -Tansi setaf 3
   git reset --hard "$deploy_newrev" || exit 1
+  tput -Tansi sgr 0
 
   # log timestamp
   echo ==== "$(date)" ==== >> $logfile
 
   if [ ! -z "${after_push_cmd}" ]; then
     echo
-    echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '${after_push_cmd}'):"
+    echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '$(tput -Tansi setaf 6)${after_push_cmd}$(tput -Tansi sgr 0)'):"
     # shellcheck disable=SC2086
     $after_push_cmd $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
   fi
@@ -111,5 +113,5 @@ do
 done
 
 echo
-echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): See you soon at '$(hostname -f)' (${ip})"
+echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): See you later at '$(tput -Tansi setaf 3)$(hostname -f)$(tput -Tansi sgr 0)' (${ip})"
 exit 0
