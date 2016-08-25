@@ -105,7 +105,7 @@ do
 
   if [ ! -z "${after_push_cmd}" ]; then
     echo
-    echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '$(tput -Tansi setaf 6)${after_push_cmd}$(tput -Tansi sgr 0)'):"
+    echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '$(tput -Tansi setaf 5)${after_push_cmd}$(tput -Tansi sgr 0)'):"
     # shellcheck disable=SC2086
     $after_push_cmd $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
   fi
