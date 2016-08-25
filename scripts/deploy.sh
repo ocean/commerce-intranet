@@ -20,7 +20,7 @@ newrev="$2"
 refname="$3"
 ansible_cmd="$(which ansible-playbook)"
 
-# echo "hello there! running deploy.sh script at $(date)"
+# echo "hello there! running deploy.sh script at $(date)" 
 
 if [ -x "$ansible_cmd" ]; then
   $ansible_cmd scripts/ansible/deploy/dev-playbook.yml --extra-vars "git_old_revision=$oldrev git_new_revision=$newrev git_refname=$refname"
