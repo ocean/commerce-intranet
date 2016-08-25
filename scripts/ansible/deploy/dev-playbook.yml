@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+
+  # To be run as "admin", so no need for escalation
+  # become: true
+  # become_method: sudo
+
+  # Most should be set already
+  # environment:
+    # - http_proxy: blah
+
+  vars:
+    this_thing: 47
+
+  # Not needed yet
+  # roles:
+    # - { role: common, tags: ["common"] }
+
+  # Ok, we are going to deploy this thing
+  tasks:
+    - debug: var=git_*
+    - debug: var=this_thing
+    - name: Check current directory
+      command: ls -al
+      register: directory_listing
+    - name: Run hi there
+      command: echo "hi there"
+      when: directory_listing.stdout.find('internal') == -1
+
+  handlers:
+    # - name: restart mysqld
+    #   service: name=mysqld state=restarted
+    # - name: restart httpd
+    #   service: name=httpd state=restarted
