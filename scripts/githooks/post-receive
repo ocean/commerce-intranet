@@ -46,7 +46,7 @@ head="$($git symbolic-ref HEAD)"
 
 # When receiving a new git push, the received branch gets compared to this one.
 # If you do not need this, just add a comment
-export DEPLOY_ALLOWED_BRANCH="master"
+export deploy_allowed_branch="master"
 
 # Set up logfile to log deployment script runs.
 logfile=log/deploy.log
@@ -58,18 +58,13 @@ if [ ! -f "log/deploy.log" ]; then
 fi
 
 # Run this script in the repo to fire off the actual work
-AFTER_PUSH_CMD='scripts/deploy.sh'
+after_push_cmd='scripts/deploy.sh'
 
 ###########################################################################################
 
-echo "pwd is $(pwd)"
-echo "who am i = $(whoami)"
-echo "ifconfig = $(ifconfig)"
+ip="$(hostname -i | cut -f1 -d ' ')"
 
-# IP="$(ip addr show eth0 | grep 'inet ' | cut -f2 | awk '{ print $2}')"
-IP="$(ip addr show | grep -A 2 eno | grep 'inet ' | cut -f2 | awk '{print $2}' | cut -d '/' -f1)"
-
-echo "githook: $(date): Welcome to '$(hostname -f)' (${IP})"
+echo "githook: $(date): Welcome to '$(hostname -f)' (${ip})"
 echo
 
 # Loop, because it is possible to push more than one branch at a time. (git push --all)
@@ -88,36 +83,36 @@ do
     chmod 0664 $logfile
   fi
 
-  export DEPLOY_BRANCH=$(git rev-parse --symbolic --abbrev-ref $refname)
-  export DEPLOY_OLDREV="$oldrev"
-  export DEPLOY_NEWREV="$newrev"
-  export DEPLOY_REFNAME="$refname"
+  export deploy_branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  export deploy_oldrev="$oldrev"
+  export deploy_newrev="$newrev"
+  export deploy_refname="$refname"
 
-  if [ ! -z "${DEPLOY_ALLOWED_BRANCH}" ]; then
-    if [ "${DEPLOY_ALLOWED_BRANCH}" != "$DEPLOY_BRANCH" ]; then
-      echo "githook: Branch '$DEPLOY_BRANCH' will not be deployed. Exiting."
+  if [ ! -z "${deploy_allowed_branch}" ]; then
+    if [ "${deploy_allowed_branch}" != "$deploy_branch" ]; then
+      echo "githook: Branch '$deploy_branch' will not be deployed. Exiting."
       exit 1
     fi
   fi
 
   # Make sure GIT_DIR and GIT_WORK_TREE is correctly set and 'export'ed. Otherwhise
   # these two environment variables could also be passed as parameters to the git cli
-  # echo "githook: I will deploy '${DEPLOY_BRANCH}' branch of the '${DEPLOY_APP_NAME}' project to '${DEPLOY_ROOT}'"
-  git checkout -f "${DEPLOY_BRANCH}" || exit 1
-  git reset --hard "$DEPLOY_NEWREV" || exit 1
+  # echo "githook: I will deploy '${deploy_branch}' branch of the '${DEPLOY_APP_NAME}' project to '${DEPLOY_ROOT}'"
+  git checkout -f "${deploy_branch}" || exit 1
+  git reset --hard "$deploy_newrev" || exit 1
 
   # log timestamp
   echo ==== $(date) ==== >> $logfile
 
-  if [ ! -z "${AFTER_PUSH_CMD}" ]; then
+  if [ ! -z "${after_push_cmd}" ]; then
     echo
-    echo "githook: AFTER PUSH (CMD: '${AFTER_PUSH_CMD}'):"
-    # eval $AFTER_PUSH_CMD || exit 1
-    $AFTER_PUSH_CMD $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
+    echo "githook: AFTER PUSH (CMD: '${after_push_cmd}'):"
+    # eval $after_push_cmd || exit 1
+    $after_push_cmd $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
   fi
 
 done
 
 echo
-echo "githook: $(date): See you soon at '$(hostname -f)' (${IP})"
+echo "githook: $(date): See you soon at '$(hostname -f)' (${ip})"
 exit 0

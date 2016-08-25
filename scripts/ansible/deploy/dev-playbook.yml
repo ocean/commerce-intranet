@@ -18,7 +18,7 @@
 
   # Ok, we are going to deploy this thing
   tasks:
-    - debug: var=git_*
+    - debug: var=git_new_revision
     - debug: var=this_thing
     - name: Check current directory
       command: ls -al
