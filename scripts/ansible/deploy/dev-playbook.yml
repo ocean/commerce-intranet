@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: local
 
   # To be run as "admin", so no need for escalation
   # become: true
