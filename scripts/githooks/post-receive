@@ -37,11 +37,10 @@ if [ "$GIT_DIR" = "." ]; then
   unset GIT_DIR
 fi
 
-git="$(which git)"
+# git="$(which git)"
 
 # get the current branch
-head="$($git symbolic-ref HEAD)"
-
+# head="$($git symbolic-ref HEAD)"
 # echo "head is ${head}"
 
 # When receiving a new git push, the received branch gets compared to this one.
@@ -68,7 +67,7 @@ echo "githook: $(date): Welcome to '$(hostname -f)' (${ip})"
 echo
 
 # Loop, because it is possible to push more than one branch at a time. (git push --all)
-while read oldrev newrev refname
+while read -r oldrev newrev refname
 do
   # abort if there's no update, or in case the branch is deleted
   if [ -z "${newrev//0}" ]; then
@@ -83,7 +82,8 @@ do
     chmod 0664 $logfile
   fi
 
-  export deploy_branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  deploy_branch=$(git rev-parse --symbolic --abbrev-ref "$refname")
+  export deploy_branch
   export deploy_oldrev="$oldrev"
   export deploy_newrev="$newrev"
   export deploy_refname="$refname"
@@ -102,13 +102,13 @@ do
   git reset --hard "$deploy_newrev" || exit 1
 
   # log timestamp
-  echo ==== $(date) ==== >> $logfile
+  echo ==== "$(date)" ==== >> $logfile
 
   if [ ! -z "${after_push_cmd}" ]; then
     echo
     echo "githook: AFTER PUSH (CMD: '${after_push_cmd}'):"
     # eval $after_push_cmd || exit 1
-    $after_push_cmd $oldrev $newrev $refname 2>&1 | tee -a $logfile || exit 1
+    "$after_push_cmd $oldrev $newrev $refname" 2>&1 | tee -a $logfile || exit 1
   fi
 
 done
