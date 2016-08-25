@@ -22,6 +22,8 @@ ansible_cmd="$(which ansible-playbook)"
 
 echo "hello there! running deploy.sh script at $(date)"
 
+echo "pwd is $(pwd)"
+
 if [ -x "$ansible_cmd" ]; then
   $ansible_cmd ansible/deploy/dev-playbook.yml --extra-vars "git_old_revision=$oldrev git_new_revision=$newrev git_refname=$refname"
 fi
