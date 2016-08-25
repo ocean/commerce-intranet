@@ -63,7 +63,7 @@ after_push_cmd='scripts/deploy.sh'
 
 ip="$(hostname -i | cut -f1 -d ' ')"
 
-echo "githook: $(date): Welcome to '$(hostname -f)' (${ip})"
+echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): Welcome to '$(hostname -f)' (${ip})"
 echo
 
 # Loop, because it is possible to push more than one branch at a time. (git push --all)
@@ -90,7 +90,7 @@ do
 
   if [ ! -z "${deploy_allowed_branch}" ]; then
     if [ "${deploy_allowed_branch}" != "$deploy_branch" ]; then
-      echo "githook: Branch '$deploy_branch' will not be deployed. Exiting."
+      echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) Branch '$deploy_branch' will not be deployed. Exiting."
       exit 1
     fi
   fi
@@ -106,7 +106,7 @@ do
 
   if [ ! -z "${after_push_cmd}" ]; then
     echo
-    echo "githook: AFTER PUSH (CMD: '${after_push_cmd}'):"
+    echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) AFTER PUSH (CMD: '${after_push_cmd}'):"
     # eval $after_push_cmd || exit 1
     $after_push_cmd "$oldrev $newrev $refname" 2>&1 | tee -a $logfile || exit 1
   fi
@@ -114,5 +114,5 @@ do
 done
 
 echo
-echo "githook: $(date): See you soon at '$(hostname -f)' (${ip})"
+echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): See you soon at '$(hostname -f)' (${ip})"
 exit 0
