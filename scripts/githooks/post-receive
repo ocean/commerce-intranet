@@ -63,7 +63,7 @@ after_push_cmd='scripts/deploy.sh'
 
 ip="$(hostname -i | cut -f1 -d ' ')"
 
-echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): Welcome to '$(tput -Tansi setaf 3)$(hostname -f)$(tput -Tansi sgr 0)' (${ip})"
+echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): Welcome to '$(tput -Tansi setaf 5)$(hostname -f)$(tput -Tansi sgr 0)' (${ip})"
 echo
 
 # Loop, because it is possible to push more than one branch at a time. (git push --all)
@@ -96,7 +96,7 @@ do
   fi
 
   git checkout -f "${deploy_branch}" || exit 1
-  tput -Tansi setaf 3
+  tput -Tansi setaf 5
   git reset --hard "$deploy_newrev" || exit 1
   tput -Tansi sgr 0
 
@@ -113,5 +113,5 @@ do
 done
 
 echo
-echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): See you later at '$(tput -Tansi setaf 3)$(hostname -f)$(tput -Tansi sgr 0)' (${ip})"
+echo "$(tput -Tansi setaf 0)$(tput -Tansi setab 6)githook:$(tput -Tansi sgr 0) $(date): See you later at '$(tput -Tansi setaf 5)$(hostname -f)$(tput -Tansi sgr 0)' (${ip})"
 exit 0
