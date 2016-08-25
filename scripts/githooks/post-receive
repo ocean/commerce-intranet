@@ -37,8 +37,6 @@ if [ "$GIT_DIR" = "." ]; then
   unset GIT_DIR
 fi
 
-logfile=log/deploy.log
-
 git="$(which git)"
 
 # get the current branch
@@ -55,7 +53,11 @@ AFTER_PUSH_CMD='scripts/deploy.sh'
 
 ###########################################################################################
 
-IP="$(ip addr show eth0 | grep 'inet ' | cut -f2 | awk '{ print $2}')"
+# IP="$(ip addr show eth0 | grep 'inet ' | cut -f2 | awk '{ print $2}')"
+
+echo "who am i = $(whoami)"
+
+IP="$(ip addr show | grep -A 2 eno | grep 'inet ' | cut -f2 | awk '{print $2}' | cut -d '/' -f1)"
 
 echo "githook: $(date): Welcome to '$(hostname -f)' (${IP})"
 echo
@@ -75,6 +77,8 @@ do
     touch $logfile
     chmod 0664 $logfile
   fi
+
+  logfile=log/deploy.log
 
   export DEPLOY_BRANCH=$(git rev-parse --symbolic --abbrev-ref $refname)
   export DEPLOY_OLDREV="$oldrev"
