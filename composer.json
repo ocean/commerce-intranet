@@ -15,12 +15,12 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
+    "repositories": {
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ],
+    },
     "require": {
         "composer/installers": "^1.0.25",
         "drupal-composer/drupal-scaffold": "~2",
