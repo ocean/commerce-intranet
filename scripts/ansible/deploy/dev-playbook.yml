@@ -28,7 +28,8 @@
       shell: |
         `which git` diff $oldrev $newrev --diff-filter=ACDMR --name-only | wc -l
       register: git_number_of_files_changed
-    - debug: msg=Files changed':' {{ git_number_of_files_changed }}
+    - debug:
+        msg: Files changed':' {{ git_number_of_files_changed }}
     - name: Check if theme code needs rebuilding
       shell: |
         `which git` diff $oldrev $newrev --name-only | grep 'web\/themes\/custom' | wc -l
