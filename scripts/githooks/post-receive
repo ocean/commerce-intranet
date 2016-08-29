@@ -57,6 +57,8 @@ if [ ! -f "log/deploy.log" ]; then
 fi
 
 # Run this script in the repo to fire off the actual work
+# NOTE: This is relative to the top level of the repo, 
+# as we cd into there on line 36 of this script.
 after_push_cmd='scripts/deploy.sh'
 
 ###########################################################################################
