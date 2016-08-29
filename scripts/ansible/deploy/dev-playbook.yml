@@ -37,6 +37,8 @@
       shell: |
         `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep -E -v 'web\/themes\/custom|tests|scripts' | wc -l
       register: git_number_of_code_files_changed
+    - name: Ensure permissions are correct on web root
+      file: path={{ drupal_app_root_directory }} state=directory recurse=yes owner=apache group=apache mode="ug+rw"
     - name: Turning on Drupal maintenance mode
       shell: drush sset system.maintenance_mode 1
       args:
