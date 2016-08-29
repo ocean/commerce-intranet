@@ -45,12 +45,28 @@
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
         src: "{{ git_drupal_repo_directory }}/"
-        dest: "{{ drupal_web_root_directory }}/"
+        dest: "{{ drupal_app_root_directory }}/"
         rsync_opts:
-          - "--dry-run"
           - "--verbose"
           - "--exclude-from=scripts/ansible/deploy/rsync-excludes"
+          # - "--delete"
+          # - "--dry-run"
       delegate_to: "{{ inventory_hostname }}"
+    - name: Running Drupal update scripts
+      shell: drush updatedb -y
+      args:
+        chdir: "{{ drupal_web_root_directory }}"
+      when: git_number_of_code_files_changed > 0
+    - name: Clearing Drupal caches
+      shell: drush cache-clear all
+      args:
+        chdir: "{{ drupal_web_root_directory }}"
+      when: git_number_of_code_files_changed > 0
+    - name: Turning off Drupal maintenance mode
+      shell: drush sset system.maintenance_mode 0
+      args:
+        chdir: "{{ drupal_web_root_directory }}"
+      when: git_number_of_code_files_changed > 0
     # - name: Check current directory
     #   command: pwd
     #   register: directory_listing
