@@ -21,9 +21,6 @@
   # Ok, we are going to deploy this thing
   tasks:
     - debug: var=git_new_revision
-    # - name: Register drupal_repo_directory variable
-    #   shell: pwd
-    #   register: drupal_repo_directory
     - debug: var=git_drupal_repo_directory
     - name: Counting how many files have changed
       shell: |
