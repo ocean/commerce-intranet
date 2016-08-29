@@ -62,7 +62,7 @@
         chdir: "{{ drupal_web_root_directory }}"
       when: git_number_of_code_files_changed > 0
     - name: Clearing Drupal caches
-      shell: drush cache-clear all
+      shell: drush cache-rebuild
       args:
         chdir: "{{ drupal_web_root_directory }}"
       when: git_number_of_code_files_changed > 0
