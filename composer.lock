@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66ca1bb9a7d28409bd4bc90b4ec04567",
-    "content-hash": "b8c237c2c2048e14f7ecd6c1866b97fe",
+    "hash": "94cf2790798826792aab8fb182845ccc",
+    "content-hash": "83f029972855ac1bf56b62e97ebb13c6",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1216,7 +1216,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/devel",
-                "reference": "7fc16ecc482abe51d350ec17f2a99ebfac3717f8"
+                "reference": "2921cbeb4ba3436c6d6e028ba8b4956a35e233b1"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1230,8 +1230,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha1+17-dev",
-                    "datestamp": "1472026139"
+                    "version": "8.x-1.0-alpha1+18-dev",
+                    "datestamp": "1472298839"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1289,7 +1289,7 @@
                 "issues": "http://drupal.org/project/devel",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
-            "time": "2016-08-24 08:06:09"
+            "time": "2016-08-27 11:51:36"
         },
         {
             "name": "drush/config-extra",
