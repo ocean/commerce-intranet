@@ -46,6 +46,10 @@
       synchronize:
         src: "{{ git_drupal_repo_directory }}/"
         dest: "{{ drupal_app_root_directory }}/"
+        archive: no
+        links: yes
+        recursive: yes
+        times: yes
         rsync_opts:
           - "--verbose"
           - "--exclude-from=scripts/ansible/deploy/rsync-excludes"
