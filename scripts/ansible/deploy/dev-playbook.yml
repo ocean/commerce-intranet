@@ -12,6 +12,7 @@
   vars:
     theme_build_directory: "web/themes/custom/intranet"
     drupal_app_root_directory: "/opt/app/html/intranet"
+    drupal_web_root_directory: "/opt/app/html/intranet/web"
 
   # Not needed yet
   # roles:
@@ -24,21 +25,33 @@
     #   shell: pwd
     #   register: drupal_repo_directory
     - debug: var=drupal_repo_directory
-    - name: Count how many files have changed
+    - name: Counting how many files have changed
       shell: |
         `which git` diff {{ git_old_revision }} {{ git_new_revision }} --diff-filter=ACDMR --name-only | wc -l
       register: git_number_of_files_changed
     - debug: var=git_number_of_files_changed
     - debug:
         msg: Files changed{{':'}} {{ git_number_of_files_changed.stdout }}
-    - name: Check if theme code needs rebuilding
+    - name: Checking if theme code needs rebuilding
       shell: |
         `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep 'web\/themes\/custom' | wc -l
       register: git_number_of_theme_files_changed
-    - name: Check if Drupal code has changed and update needs running
+    - name: Checking if Drupal code has changed and update needs running
       shell: |
         `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep -E -v 'web\/themes\/custom|tests|scripts' | wc -l
       register: git_number_of_code_files_changed
+    - name: Turning on Drupal maintenance mode
+      shell: drush vset maintenance_mode 1
+      chdir: "{{ drupal_web_root_directory }}"
+      when: git_number_of_code_files_changed > 0
+    - name: Rsyncing code changes into Drupal app root directory
+      synchronize:
+        src: "{{ drupal_repo_directory }}"
+        dest: "{{ drupal_web_root_directory }}"
+        rsync_opts:
+          - "--dry-run"
+          - "--verbose"
+        delegate_to: "{{ inventory_hostname }}"
     # - name: Check current directory
     #   command: pwd
     #   register: directory_listing
