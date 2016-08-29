@@ -44,11 +44,12 @@
       when: git_number_of_code_files_changed > 0
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
-        src: "{{ git_drupal_repo_directory }}"
-        dest: "{{ drupal_web_root_directory }}"
+        src: "{{ git_drupal_repo_directory }}/"
+        dest: "{{ drupal_web_root_directory }}/"
         rsync_opts:
           - "--dry-run"
           - "--verbose"
+          - "--exclude-from=scripts/ansible/deploy/rsync-excludes"
       delegate_to: "{{ inventory_hostname }}"
     # - name: Check current directory
     #   command: pwd

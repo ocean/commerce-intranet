@@ -1,0 +1,6 @@
+# Development files
+.git*
+.travis.yml
+log/
+tests/
+scripts/
