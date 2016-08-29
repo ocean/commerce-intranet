@@ -42,7 +42,8 @@
       register: git_number_of_code_files_changed
     - name: Turning on Drupal maintenance mode
       shell: drush vset maintenance_mode 1
-      chdir: "{{ drupal_web_root_directory }}"
+      args:
+        chdir: "{{ drupal_web_root_directory }}"
       when: git_number_of_code_files_changed > 0
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
