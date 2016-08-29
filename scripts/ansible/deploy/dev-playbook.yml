@@ -52,7 +52,7 @@
         rsync_opts:
           - "--dry-run"
           - "--verbose"
-        delegate_to: "{{ inventory_hostname }}"
+      delegate_to: "{{ inventory_hostname }}"
     # - name: Check current directory
     #   command: pwd
     #   register: directory_listing
