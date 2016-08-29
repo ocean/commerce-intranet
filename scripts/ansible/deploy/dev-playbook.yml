@@ -39,6 +39,8 @@
       register: git_number_of_code_files_changed
     - name: Ensure permissions are correct on web root
       file: path={{ drupal_app_root_directory }} state=directory recurse=yes owner=apache group=apache mode="ug+rw"
+      become: true
+      become_method: sudo
       register: permission_update
     - debug: var=permission_update
     - name: Turning on Drupal maintenance mode
