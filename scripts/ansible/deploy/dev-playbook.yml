@@ -31,12 +31,15 @@
         msg: Files changed{{':'}} {{ git_number_of_files_changed.stdout }}
     - name: Checking if theme code needs rebuilding
       shell: |
-        `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep 'web\/themes\/custom' | wc -l
+        `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep 'web\/themes' | wc -l
       register: git_number_of_theme_files_changed
     - name: Checking if Drupal code has changed and update needs running
       shell: |
-        `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep -E -v 'web\/themes\/custom|tests|scripts' | wc -l
+        `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep -E -v 'web\/themes|tests|scripts' | wc -l
       register: git_number_of_code_files_changed
+    - name: Running Composer update to install changed modules
+      shell: composer install --prefer-dist --no-interaction --no-suggest --profile
+      when: git_number_of_code_files_changed.stdout|int > 0
     # - name: Ensure permissions are correct on web root
     #   file: path={{ drupal_app_root_directory }} state=directory recurse=yes owner=apache group=apache mode="ug+rw"
     #   become: true
@@ -47,7 +50,7 @@
       shell: drush sset system.maintenance_mode 1
       args:
         chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_code_files_changed > 0
+      when: git_number_of_code_files_changed.stdout|int > 0
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
         src: "{{ git_drupal_repo_directory }}/"
@@ -66,17 +69,17 @@
       shell: drush updatedb -y
       args:
         chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_code_files_changed > 0
+      when: git_number_of_code_files_changed.stdout|int > 0
     - name: Clearing Drupal caches
       shell: drush cache-rebuild
       args:
         chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_code_files_changed > 0
+      when: git_number_of_files_changed.stdout|int > 0
     - name: Turning off Drupal maintenance mode
       shell: drush sset system.maintenance_mode 0
       args:
         chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_code_files_changed > 0
+      when: git_number_of_code_files_changed.stdout|int > 0
     # - name: Check current directory
     #   command: pwd
     #   register: directory_listing
