@@ -38,8 +38,8 @@
         `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep -E -v 'web\/themes|tests|scripts' | wc -l
       register: git_number_of_code_files_changed
     - name: Running Composer update to install changed modules
-      shell: composer install --prefer-dist --no-interaction --no-suggest --profile
-      when: git_number_of_code_files_changed.stdout|int > 0
+      shell: composer install --prefer-dist --no-interaction --no-progress --no-suggest --profile
+      # when: git_number_of_code_files_changed.stdout|int > 0
     # - name: Ensure permissions are correct on web root
     #   file: path={{ drupal_app_root_directory }} state=directory recurse=yes owner=apache group=apache mode="ug+rw"
     #   become: true
@@ -65,6 +65,12 @@
           # - "--delete"
           # - "--dry-run"
       delegate_to: "{{ inventory_hostname }}"
+    - name: Ensure ownership is correct on web root
+      file: path={{ drupal_app_root_directory }} state=directory recurse=yes owner=apache group=apache
+      become: true
+      become_method: sudo
+      register: permission_update
+    - debug: var=permission_update
     - name: Running Drupal update scripts
       shell: drush updatedb -y
       args:
