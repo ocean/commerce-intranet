@@ -60,8 +60,9 @@
         recursive: yes
         # times: yes
         rsync_opts:
-          - "--verbose"
+          - "--checksum"
           - "--exclude-from=scripts/ansible/deploy/rsync-excludes"
+          - "--verbose"
           # - "--delete"
           # - "--dry-run"
       delegate_to: "{{ inventory_hostname }}"
