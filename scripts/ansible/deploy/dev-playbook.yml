@@ -41,7 +41,7 @@
       register: git_number_of_code_files_changed
       changed_when: git_number_of_code_files_changed.stdout|int > 0
     - name: Running Composer install to install changed modules
-      shell: composer install --prefer-dist --no-interaction --no-progress --no-suggest --profile
+      shell: composer install --no-interaction --no-progress --no-suggest --profile
       # when: git_number_of_code_files_changed.stdout|int > 0
       register: composer_installation_run
       changed_when: composer_installation_run.stderr.find('Nothing to install or update') == -1
