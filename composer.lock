@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9ecb918bf40c4d6c0853184b8c5f548c",
-    "content-hash": "1515b16039a14440cd018adec2395867",
+    "hash": "d7cb31dc38b298610d7058cf62b92db9",
+    "content-hash": "afe1765c74251bfe618f43eb0f97fd80",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -918,7 +918,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/adminimal_admin_toolbar-8.x-1.3.zip",
-                "reference": null,
+                "reference": "8.x-1.3",
                 "shasum": "6e2b1fc80fece1f68895269713d5aa7e1cb220a5"
             },
             "require": {
@@ -997,6 +997,49 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/adminimal_theme"
             }
+        },
+        {
+            "name": "drupal/authorization",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/authorization",
+                "reference": "0e63083547705b3f9b71ef48307e28c0760be844"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/externalauth": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1466465039"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "johnbarclay",
+                    "homepage": "https://www.drupal.org/user/225037"
+                },
+                {
+                    "name": "queenvictoria",
+                    "homepage": "https://www.drupal.org/user/856454"
+                }
+            ],
+            "description": "Authorization API connects up providers (for example LDAP) with consumers (for example Organic Groups or Drupal roles).",
+            "homepage": "https://www.drupal.org/project/authorization",
+            "support": {
+                "source": "http://cgit.drupalcode.org/authorization"
+            },
+            "time": "2016-06-20 23:13:03"
         },
         {
             "name": "drupal/console",
@@ -1335,6 +1378,269 @@
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
             "time": "2016-08-29 10:25:47"
+        },
+        {
+            "name": "drupal/entity",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/entity",
+                "reference": "f12bdcafae712ddf00364e9977014a3aa95eafd6"
+            },
+            "require": {
+                "drupal/core": "~8.1"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha3+2-dev",
+                    "datestamp": "1466693433"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Berdir",
+                    "homepage": "https://www.drupal.org/user/214652"
+                },
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "dixon_",
+                    "homepage": "https://www.drupal.org/user/239911"
+                },
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                }
+            ],
+            "description": "Provides expanded entity APIs, which will be moved to Drupal core one day.",
+            "homepage": "http://drupal.org/project/entity",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entity"
+            },
+            "time": "2016-06-23 14:20:38"
+        },
+        {
+            "name": "drupal/externalauth",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/externalauth",
+                "reference": "8.x-1.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/externalauth-8.x-1.0-alpha3.zip",
+                "reference": "8.x-1.0-alpha3",
+                "shasum": "c17368438d5b64eafc4d1c087df624ab7f86a4ae"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha3",
+                    "datestamp": "1453313039"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "rgristroph",
+                    "homepage": "https://www.drupal.org/user/516442"
+                },
+                {
+                    "name": "snufkin",
+                    "homepage": "https://www.drupal.org/user/58645"
+                },
+                {
+                    "name": "svendecabooter",
+                    "homepage": "https://www.drupal.org/user/35369"
+                }
+            ],
+            "description": "Helper module to authenticate users using an external site / service and storing identification details",
+            "homepage": "https://www.drupal.org/project/externalauth",
+            "support": {
+                "source": "http://cgit.drupalcode.org/externalauth"
+            }
+        },
+        {
+            "name": "drupal/feeds",
+            "version": "dev-3.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/feeds",
+                "reference": "516a1e96ed44223ce3a0c2d4af271f0085e8f88c"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.x-dev",
+                    "datestamp": "1472214239"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "Ian Ward",
+                    "homepage": "https://www.drupal.org/user/4736"
+                },
+                {
+                    "name": "MegaChriz",
+                    "homepage": "https://www.drupal.org/user/654114"
+                },
+                {
+                    "name": "Will White",
+                    "homepage": "https://www.drupal.org/user/32237"
+                },
+                {
+                    "name": "alex_b",
+                    "homepage": "https://www.drupal.org/user/53995"
+                },
+                {
+                    "name": "e2thex",
+                    "homepage": "https://www.drupal.org/user/189123"
+                },
+                {
+                    "name": "febbraro",
+                    "homepage": "https://www.drupal.org/user/43670"
+                },
+                {
+                    "name": "franz",
+                    "homepage": "https://www.drupal.org/user/581844"
+                },
+                {
+                    "name": "jmiccolis",
+                    "homepage": "https://www.drupal.org/user/31731"
+                },
+                {
+                    "name": "kking",
+                    "homepage": "https://www.drupal.org/user/24399"
+                },
+                {
+                    "name": "tobby",
+                    "homepage": "https://www.drupal.org/user/154797"
+                },
+                {
+                    "name": "tristanoneil",
+                    "homepage": "https://www.drupal.org/user/340659"
+                },
+                {
+                    "name": "twistor",
+                    "homepage": "https://www.drupal.org/user/473738"
+                },
+                {
+                    "name": "yhahn",
+                    "homepage": "https://www.drupal.org/user/264833"
+                }
+            ],
+            "description": "Aggregates RSS/Atom/RDF feeds, imports CSV files and more.",
+            "homepage": "https://www.drupal.org/project/feeds",
+            "support": {
+                "source": "http://cgit.drupalcode.org/feeds"
+            },
+            "time": "2016-08-26 12:18:59"
+        },
+        {
+            "name": "drupal/ldap",
+            "version": "dev-3.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ldap",
+                "reference": "2b0a9081d6af566d52d644d81c41f809fc9a2025"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "drupal/authorization": "Required by drupal/ldap_authorization",
+                "drupal/core": "Required by drupal/ldap_views",
+                "drupal/entity": "Required by drupal/ldap_test",
+                "drupal/externalauth": "Required by drupal/ldap_user",
+                "drupal/feeds": "Required by drupal/ldap_feeds",
+                "drupal/ldap_query": "Required by drupal/ldap_views",
+                "drupal/ldap_servers": "Required by drupal/ldap_user",
+                "drupal/ldap_test": "Required by drupal/ldap_help",
+                "drupal/ldap_user": "Required by drupal/ldap_authentication"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0-alpha1+2-dev",
+                    "datestamp": "1471398544"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "dgtlmoon",
+                    "homepage": "https://www.drupal.org/user/25027"
+                },
+                {
+                    "name": "grahl",
+                    "homepage": "https://www.drupal.org/user/146040"
+                },
+                {
+                    "name": "johnbarclay",
+                    "homepage": "https://www.drupal.org/user/225037"
+                },
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "queenvictoria",
+                    "homepage": "https://www.drupal.org/user/856454"
+                },
+                {
+                    "name": "welly",
+                    "homepage": "https://www.drupal.org/user/354705"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/ldap",
+            "support": {
+                "source": "http://cgit.drupalcode.org/ldap"
+            },
+            "time": "2016-08-17 01:44:28"
         },
         {
             "name": "drush/config-extra",
@@ -5892,6 +6198,10 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/devel": 20,
+        "drupal/authorization": 20,
+        "drupal/ldap": 20,
+        "drupal/feeds": 20,
+        "drupal/entity": 20,
         "jcalderonzumba/gastonjs": 20
     },
     "prefer-stable": true,
