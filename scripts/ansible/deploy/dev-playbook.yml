@@ -10,9 +10,9 @@
     - http_proxy: http://proxy.bedrock.mft.wa.gov.au:8080
     - https_proxy: https://proxy.bedrock.mft.wa.gov.au:8080
     - no_proxy: "localhost,127.0.0.1,10.*,*.commerce.wa.gov.au,*.bedrock.mft.wa.gov.au"
-    - HTTP_PROXY: "{{ lookup('env', 'http_proxy') }}"
-    - HTTPS_PROXY: "{{ lookup('env', 'https_proxy') }}"
-    - NO_PROXY: "{{ lookup('env', 'no_proxy') }}"
+    - HTTP_PROXY: http://proxy.bedrock.mft.wa.gov.au:8080
+    - HTTPS_PROXY: https://proxy.bedrock.mft.wa.gov.au:8080
+    - NO_PROXY: "localhost,127.0.0.1,10.*,*.commerce.wa.gov.au,*.bedrock.mft.wa.gov.au"
 
   vars:
     theme_build_directory: "web/themes/custom/intranet"
