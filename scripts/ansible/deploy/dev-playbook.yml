@@ -45,8 +45,8 @@
         `which git` diff {{ git_old_revision }} {{ git_new_revision }} --name-only | grep -E -v 'web\/themes|tests|scripts' | wc -l
       register: git_number_of_code_files_changed
       changed_when: git_number_of_code_files_changed.stdout|int > 0
-    - name: Running some test commands
-      shell: "env && whoami && pwd"
+    # - name: Running some test commands
+    #   shell: "env && whoami && pwd"
     # - name: Running Composer update to update composer.lock from composer.json
     #   shell: composer update --no-interaction --no-progress --no-suggest
     #   # when: git_number_of_code_files_changed.stdout|int > 0
