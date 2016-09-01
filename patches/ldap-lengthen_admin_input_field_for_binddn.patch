@@ -1,0 +1,12 @@
+diff --git a/ldap_servers/src/Form/ServerForm.php b/ldap_servers/src/Form/ServerForm.php
+index c736b04..10e83bd 100644
+--- a/ldap_servers/src/Form/ServerForm.php
++++ b/ldap_servers/src/Form/ServerForm.php
+@@ -134,6 +134,7 @@ class ServerForm extends EntityForm {
+       '#type' => 'textfield',
+       '#title' => t('DN for non-anonymous search'),
+       '#size' => 80,
++      '#maxlength' => 1024,
+       '#states' => array(
+     // Action to take.
+         'enabled' => array(

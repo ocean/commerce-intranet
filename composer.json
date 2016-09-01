@@ -75,6 +75,11 @@
             "drush/contrib/{$name}": [
                 "type:drupal-drush"
             ]
+        },
+        "patches": {
+            "drupal/ldap": {
+                "Lengthen admin page input field for 'binddn' property.": "patches/ldap-lengthen_admin_input_field_for_binddn.patch"
+            }
         }
     }
 }
