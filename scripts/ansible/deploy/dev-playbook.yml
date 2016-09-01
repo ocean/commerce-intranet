@@ -5,9 +5,14 @@
   # become: true
   # become_method: sudo
 
-  # Most should be set already test
-  # environment:
-    # - http_proxy: blah
+  # Stupid proxies
+  environment:
+    - http_proxy: http://proxy.bedrock.mft.wa.gov.au:8080
+    - https_proxy: https://proxy.bedrock.mft.wa.gov.au:8080
+    - no_proxy: "localhost,127.0.0.1,10.*,*.commerce.wa.gov.au,*.bedrock.mft.wa.gov.au"
+    - HTTP_PROXY: "{{ http_proxy }}"
+    - HTTPS_PROXY: "{{ https_proxy }}"
+    - NO_PROXY: "{{ no_proxy }}"
 
   vars:
     theme_build_directory: "web/themes/custom/intranet"
