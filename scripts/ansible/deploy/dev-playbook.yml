@@ -92,7 +92,7 @@
         chdir: "{{ drupal_web_root_directory }}"
       when: git_number_of_files_changed.stdout|int > 0
       register: drush_cache_rebuild_run
-      changed_when: "'Cache rebuild complete' in drush_cache_rebuild_run.stderr"
+      changed_when: "'Cache rebuild complete' not in drush_cache_rebuild_run.stderr"
     - name: Turning off Drupal maintenance mode
       shell: drush sset system.maintenance_mode 0
       args:
