@@ -29,7 +29,7 @@
         "drush/drush": "~8",
         "drupal/console": "~0.11",
         "drush/config-extra": "^1.0",
-        "drupal/admin_toolbar": "^1.16",
+        "drupal/admin_toolbar": "~1.16",
         "drupal/adminimal_theme": "^1.1",
         "drupal/devel": "1.x-dev",
         "drupal/adminimal_admin_toolbar": "^1.3",
