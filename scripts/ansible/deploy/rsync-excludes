@@ -3,7 +3,11 @@
 .travis.yml
 log/
 tests/
-scripts/
+
+# Deployment scripts
+scripts/ansible/
+scripts/githooks/
+scripts/deploy.sh
 
 # Drupal settings files
 web/sites/default/settings.php
