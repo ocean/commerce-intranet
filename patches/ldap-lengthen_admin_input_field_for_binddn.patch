@@ -6,7 +6,7 @@ index c736b04..10e83bd 100644
        '#type' => 'textfield',
        '#title' => t('DN for non-anonymous search'),
        '#size' => 80,
-+      '#maxlength' => 1024,
++      '#maxlength' => 512,
        '#states' => array(
      // Action to take.
          'enabled' => array(
