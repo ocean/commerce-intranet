@@ -63,13 +63,13 @@
     #   become_method: su
     #   register: permission_update
     # - debug: var=permission_update
-    - name: Turning on Drupal maintenance mode
-      shell: drush sset system.maintenance_mode 1
-      args:
-        chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_code_files_changed.stdout|int > 0
-      register: drupal_maintenance_on_run
-      changed_when: drupal_maintenance_on_run.stdout != ''
+    # - name: Turning on Drupal maintenance mode
+    #   shell: drush sset system.maintenance_mode 1
+    #   args:
+    #     chdir: "{{ drupal_web_root_directory }}"
+    #   when: git_number_of_code_files_changed.stdout|int > 0
+    #   register: drupal_maintenance_on_run
+    #   changed_when: drupal_maintenance_on_run.stdout != ''
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
         src: "{{ git_drupal_repo_directory }}/"
