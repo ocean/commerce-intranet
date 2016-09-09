@@ -98,20 +98,20 @@
       when: git_number_of_code_files_changed.stdout|int > 0
       register: drupal_update_scripts_run
       changed_when: drupal_update_scripts_run.stderr.find('No database updates required') == -1
-    - name: Rebuilding Drupal caches
-      shell: drush cache-rebuild
-      args:
-        chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_files_changed.stdout|int > 0
-      register: drush_cache_rebuild_run
-      changed_when: "'Cache rebuild complete' not in drush_cache_rebuild_run.stderr"
-    - name: Turning off Drupal maintenance mode
-      shell: drush sset system.maintenance_mode 0
-      args:
-        chdir: "{{ drupal_web_root_directory }}"
-      when: git_number_of_code_files_changed.stdout|int > 0
-      register: drupal_maintenance_off_run
-      changed_when: drupal_maintenance_off_run.stdout != ''
+    # - name: Rebuilding Drupal caches
+    #   shell: drush cache-rebuild
+    #   args:
+    #     chdir: "{{ drupal_web_root_directory }}"
+    #   when: git_number_of_files_changed.stdout|int > 0
+    #   register: drush_cache_rebuild_run
+    #   changed_when: "'Cache rebuild complete' not in drush_cache_rebuild_run.stderr"
+    # - name: Turning off Drupal maintenance mode
+    #   shell: drush sset system.maintenance_mode 0
+    #   args:
+    #     chdir: "{{ drupal_web_root_directory }}"
+    #   when: git_number_of_code_files_changed.stdout|int > 0
+    #   register: drupal_maintenance_off_run
+    #   changed_when: drupal_maintenance_off_run.stdout != ''
     # - name: Check current directory
     #   command: pwd
     #   register: directory_listing
