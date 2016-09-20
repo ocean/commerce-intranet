@@ -82,6 +82,8 @@
           - "--checksum"
           - "--exclude-from=scripts/ansible/deploy/rsync-excludes"
           - "--verbose"
+          - "--itemize-changes"
+          - "--log-file=log/rsync-output.log"
           # - "--delete"
           # - "--dry-run"
       delegate_to: "{{ inventory_hostname }}"
