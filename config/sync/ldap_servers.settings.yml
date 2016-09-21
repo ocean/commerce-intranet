@@ -1,0 +1,5 @@
+encrypt_key: false
+encryption: 10
+require_ssl_for_credentials: false
+_core:
+  default_config_hash: P97zltzHMWZQyu8E49_Wc-8jYmfNmMjP8tQ2doTV55c

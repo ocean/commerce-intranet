@@ -1,0 +1,12 @@
+uuid: a9e4198e-4183-48e4-8adf-bc2ac262f088
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: c4zaT5cyPxuTXI6JOWt3qRtMvICT9tHB6d9a5VG-CmQ
+id: feedback
+label: 'Website feedback'
+recipients:
+  - online@commerce.wa.gov.au
+reply: ''
+weight: 0

@@ -1,0 +1,20 @@
+ldap_user_cron_last_uid_checked: 1
+_core:
+  default_config_hash: wg-FaRfanWleLf97usb-xJ9HTQOP-BTAA8hXMFqKDlE
+ldap_user_conf:
+  drupalAcctProvisionServer: pidc02
+  ldapEntryProvisionServer: '0'
+  drupalAcctProvisionTriggers:
+    2: '2'
+    1: 0
+  ldapEntryProvisionTriggers:
+    6: 0
+    7: 0
+    8: 0
+    3: 0
+  orphanedDrupalAcctBehavior: ldap_user_orphan_do_not_check
+  orphanedCheckQty: 100
+  userConflictResolve: 2
+  manualAccountConflict: 1
+  acctCreation: 4
+  ldapUserSynchMappings: {  }

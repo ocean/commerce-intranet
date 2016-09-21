@@ -1,0 +1,5 @@
+identity: drupal_intranet
+facility: '128'
+format: 'type="!type" client=!ip request_uri=!request_uri referer=!referer uid=!uid link="!link" message="!message"'
+_core:
+  default_config_hash: WTmxqj231v_x1-nwNRyjyI-HzCW8ZAXSadw4W1HtKi4

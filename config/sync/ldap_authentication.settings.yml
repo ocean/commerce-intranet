@@ -1,0 +1,21 @@
+ldap_authentication_conf:
+  sids:
+    pidc02: pidc02
+  authenticationMode: 2
+  loginUIUsernameTxt: null
+  loginUIPasswordTxt: null
+  ldapUserHelpLinkUrl: null
+  ldapUserHelpLinkText: 'Logon Help'
+  emailOption: 2
+  emailUpdate: 3
+  passwordOption: 3
+  allowOnlyIfTextInDn: {  }
+  excludeIfTextInDn: {  }
+  allowTestPhp: ''
+  excludeIfNoAuthorizations: null
+  ssoRemoteUserStripDomainName: null
+  ssoExcludedPaths: {  }
+  ssoExcludedHosts: {  }
+  seamlessLogin: null
+  ldapImplementation: null
+  cookieExpire: null
