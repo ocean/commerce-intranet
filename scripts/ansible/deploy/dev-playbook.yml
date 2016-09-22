@@ -111,7 +111,7 @@
         chdir: "{{ drupal_web_root_directory }}"
       when: git_number_of_code_files_changed.stdout|int > 0
       register: drupal_entity_update_scripts_run
-      # changed_when: drupal_entity_update_scripts_run.stderr.find('No entity updates required') == -1
+      changed_when: drupal_entity_update_scripts_run.stderr.find('No entity schema updates required') == -1
     - name: Rebuilding Drupal caches
       shell: drush cache-rebuild
       args:
