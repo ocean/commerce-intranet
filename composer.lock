@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c57556bd8abed960724227c4e9218453",
-    "content-hash": "66a0be240c7f28fe69ea625bd26de024",
+    "hash": "554d97a4e9ea62b13b2ea8ebffcd59a7",
+    "content-hash": "b0abf5c0961b3049eeeacd302ecbbaab",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1650,6 +1650,216 @@
                 "source": "http://cgit.drupalcode.org/ldap"
             },
             "time": "2016-09-04 05:40:59"
+        },
+        {
+            "name": "drupal/workbench",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/workbench",
+                "reference": "c43783afe3805dfea0f8fdee5d3d7c7f177c9186"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2+1-dev",
+                    "datestamp": "1468593539"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "bbinkovitz",
+                    "homepage": "https://www.drupal.org/user/161263"
+                },
+                {
+                    "name": "becw",
+                    "homepage": "https://www.drupal.org/user/81067"
+                },
+                {
+                    "name": "caroltron",
+                    "homepage": "https://www.drupal.org/user/171342"
+                },
+                {
+                    "name": "robeano",
+                    "homepage": "https://www.drupal.org/user/67660"
+                },
+                {
+                    "name": "stevector",
+                    "homepage": "https://www.drupal.org/user/179805"
+                }
+            ],
+            "description": "Editorial dashboards and shortcuts.",
+            "homepage": "https://www.drupal.org/project/workbench",
+            "support": {
+                "source": "http://cgit.drupalcode.org/workbench"
+            },
+            "time": "2016-07-15 14:33:48"
+        },
+        {
+            "name": "drupal/workbench_access",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/workbench_access",
+                "reference": "175af8d44107995d4eea37b5d7653d507641870a"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1+1-dev",
+                    "datestamp": "1463604240"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "becw",
+                    "homepage": "https://www.drupal.org/user/81067"
+                },
+                {
+                    "name": "robeano",
+                    "homepage": "https://www.drupal.org/user/67660"
+                },
+                {
+                    "name": "stevector",
+                    "homepage": "https://www.drupal.org/user/179805"
+                }
+            ],
+            "description": "Hierarchical access control for content.",
+            "homepage": "https://www.drupal.org/project/workbench_access",
+            "support": {
+                "source": "http://cgit.drupalcode.org/workbench_access"
+            },
+            "time": "2016-05-18 19:39:17"
+        },
+        {
+            "name": "drupal/workbench_moderation",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/workbench_moderation",
+                "reference": "4128fc19d05a2f640bcee3fe8dbe11b893cdea9f"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1+1-dev",
+                    "datestamp": "1474285739"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Crell",
+                    "homepage": "https://www.drupal.org/user/26398"
+                },
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "becw",
+                    "homepage": "https://www.drupal.org/user/81067"
+                },
+                {
+                    "name": "caroltron",
+                    "homepage": "https://www.drupal.org/user/171342"
+                },
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
+                },
+                {
+                    "name": "das-peter",
+                    "homepage": "https://www.drupal.org/user/762870"
+                },
+                {
+                    "name": "josephdpurcell",
+                    "homepage": "https://www.drupal.org/user/2944035"
+                },
+                {
+                    "name": "larowlan",
+                    "homepage": "https://www.drupal.org/user/395439"
+                },
+                {
+                    "name": "robeano",
+                    "homepage": "https://www.drupal.org/user/67660"
+                },
+                {
+                    "name": "srjosh",
+                    "homepage": "https://www.drupal.org/user/165878"
+                },
+                {
+                    "name": "stevector",
+                    "homepage": "https://www.drupal.org/user/179805"
+                },
+                {
+                    "name": "tedbow",
+                    "homepage": "https://www.drupal.org/user/240860"
+                },
+                {
+                    "name": "timmillwood",
+                    "homepage": "https://www.drupal.org/user/227849"
+                }
+            ],
+            "description": "Provides moderation states for content",
+            "homepage": "http://drupal.org/project/workbench_moderation",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/workbench_moderation",
+                "issues": "http://drupal.org/project/issues/workbench_moderation"
+            },
+            "time": "2016-09-19 09:59:43"
         },
         {
             "name": "drush/config-extra",
@@ -6220,6 +6430,9 @@
         "drupal/ldap": 20,
         "drupal/feeds": 20,
         "drupal/entity": 20,
+        "drupal/workbench_moderation": 20,
+        "drupal/workbench": 20,
+        "drupal/workbench_access": 20,
         "jcalderonzumba/gastonjs": 20
     },
     "prefer-stable": true,

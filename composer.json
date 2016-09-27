@@ -36,7 +36,10 @@
         "drupal/authorization": "1.x-dev",
         "drupal/ldap": "3.x-dev",
         "drupal/feeds": "3.x-dev",
-        "drupal/entity": "1.x-dev"
+        "drupal/entity": "1.x-dev",
+        "drupal/workbench_moderation": "1.x-dev",
+        "drupal/workbench": "1.x-dev",
+        "drupal/workbench_access": "1.x-dev"
     },
     "require-dev": {
         "behat/mink": "~1.6",
