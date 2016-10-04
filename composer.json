@@ -39,7 +39,8 @@
         "drupal/entity": "1.x-dev",
         "drupal/workbench_moderation": "1.x-dev",
         "drupal/workbench": "1.x-dev",
-        "drupal/workbench_access": "1.x-dev"
+        "drupal/workbench_access": "1.x-dev",
+        "drupal/pathauto": "1.0-beta1"
     },
     "require-dev": {
         "behat/mink": "~1.6",
