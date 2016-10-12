@@ -80,7 +80,7 @@
       become: true
       become_method: sudo
       register: permission_update
-    - debug: var=permission_update
+    # - debug: var=permission_update
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
         src: "{{ git_drupal_repo_directory }}/"
@@ -109,7 +109,7 @@
       become: true
       become_method: sudo
       register: permission_revert
-    - debug: var=permission_revert
+    # - debug: var=permission_revert
     - name: Running Drupal database update scripts
       shell: drush updatedb -y
       args:
