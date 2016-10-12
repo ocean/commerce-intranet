@@ -76,7 +76,7 @@
       register: drupal_maintenance_on_run
       changed_when: drupal_maintenance_on_run.stdout != ''
     - name: Ensure site settings directory is writable for rsync changes of default files
-      file: path={{ drupal_web_root_directory }}/sites/default state=directory mode="u+w"
+      file: path={{ drupal_web_root_directory }}/sites/default state=directory mode="ug+w"
       become: true
       become_method: sudo
       register: permission_update
@@ -105,7 +105,7 @@
     #   register: permission_update
     # - debug: var=permission_update
     - name: Set site settings directory back to not writable
-      file: path={{ drupal_web_root_directory }}/sites/default state=directory mode="u-w"
+      file: path={{ drupal_web_root_directory }}/sites/default state=directory mode="ug-w"
       become: true
       become_method: sudo
       register: permission_revert
