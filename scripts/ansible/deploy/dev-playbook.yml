@@ -75,6 +75,12 @@
       when: git_number_of_code_files_changed.stdout|int > 0
       register: drupal_maintenance_on_run
       changed_when: drupal_maintenance_on_run.stdout != ''
+    - name: Ensure site settings directory is writable for rsync changes
+      file: path={{ drupal_web_root_directory }}/sites/default state=directory mode="u+w"
+      become: true
+      become_method: sudo
+      register: permission_update
+    - debug: var=permission_update
     - name: Rsyncing code changes into Drupal app root directory
       synchronize:
         src: "{{ git_drupal_repo_directory }}/"
@@ -98,6 +104,12 @@
     #   become_method: sudo
     #   register: permission_update
     # - debug: var=permission_update
+    - name: Set site settings directory back to not writable
+      file: path={{ drupal_web_root_directory }}/sites/default state=directory mode="u-w"
+      become: true
+      become_method: sudo
+      register: permission_revert
+    - debug: var=permission_revert
     - name: Running Drupal database update scripts
       shell: drush updatedb -y
       args:
