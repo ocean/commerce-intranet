@@ -1004,17 +1004,17 @@
         },
         {
             "name": "drupal/adminimal_theme",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/adminimal_theme",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/adminimal_theme-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "7c0db056d41e902810a4c147c74ddbeda41add76"
+                "url": "https://ftp.drupal.org/files/projects/adminimal_theme-8.x-1.2.zip",
+                "reference": null,
+                "shasum": "1c02ff5bd754b868ec2a5865d788a9e969bde79b"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1025,8 +1025,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1449335039"
+                    "version": "8.x-1.2",
+                    "datestamp": "1476865881"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -1797,7 +1797,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/pathauto-8.x-1.0-beta1.zip",
-                "reference": null,
+                "reference": "8.x-1.0-beta1",
                 "shasum": "0c8756d73d5b1f95419921926e8e55bc0c69e41b"
             },
             "require": {
