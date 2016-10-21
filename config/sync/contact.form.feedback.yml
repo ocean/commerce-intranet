@@ -10,3 +10,5 @@ recipients:
   - online@commerce.wa.gov.au
 reply: ''
 weight: 0
+message: 'Your message has been sent.'
+redirect: ''
