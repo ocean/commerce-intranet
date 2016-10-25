@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3402f539c4a11b426670797718b0da4e",
-    "content-hash": "a6c5b41f953d256d8ab3656a5168b81f",
+    "hash": "26b95db7e25239fb58a098536fdf4628",
+    "content-hash": "7a4c46bb98eebd8c514c70278a93d899",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1013,7 +1013,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://ftp.drupal.org/files/projects/adminimal_theme-8.x-1.2.zip",
-                "reference": null,
+                "reference": "8.x-1.2",
                 "shasum": "1c02ff5bd754b868ec2a5865d788a9e969bde79b"
             },
             "require": {
@@ -1842,6 +1842,47 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/pathauto"
             }
+        },
+        {
+            "name": "drupal/shs",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/shs",
+                "reference": "07945afcfc21c9825703be1afe80130551bba47c"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "suggest": {
+                "drupal/chosen": "Required by drupal/shs_chosen"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1+29-dev",
+                    "datestamp": "1473403464"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "stBorchert",
+                    "homepage": "https://www.drupal.org/user/36942"
+                }
+            ],
+            "description": "Creates a simple hierarchical select widget for taxonomy fields.",
+            "homepage": "https://www.drupal.org/project/shs",
+            "support": {
+                "source": "http://cgit.drupalcode.org/shs"
+            },
+            "time": "2016-09-09 06:39:56"
         },
         {
             "name": "drupal/token",
@@ -6787,6 +6828,7 @@
         "drupal/workbench_moderation": 20,
         "drupal/workbench": 20,
         "drupal/workbench_access": 20,
+        "drupal/shs": 20,
         "jcalderonzumba/gastonjs": 20
     },
     "prefer-stable": true,
