@@ -1,0 +1,21 @@
+uuid: f9d35122-b156-4ff8-b96d-d5bb15faf466
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.application.field_application_category
+    - field.field.node.application.field_application_url
+    - node.type.application
+  module:
+    - user
+id: node.application.teaser
+targetEntityType: node
+bundle: application
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_application_category: true
+  field_application_url: true

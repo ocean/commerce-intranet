@@ -1,0 +1,18 @@
+uuid: 2d276b05-a35f-429a-acba-6df48f0fa17a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Document page'
+type: document_page
+description: 'Contains a document attachment or link to a document, and a short text summary of the document enabling it to indexed by the search engine.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

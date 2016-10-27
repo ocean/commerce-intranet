@@ -1,0 +1,28 @@
+uuid: b143a160-1586-42c7-97aa-2ef73ce78f22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location
+    - node.type.event_page
+    - taxonomy.vocabulary.location
+id: node.event_page.field_location
+field_name: field_location
+entity_type: node
+bundle: event_page
+label: Location
+description: 'The location of the event (if in a Commerce-managed location).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

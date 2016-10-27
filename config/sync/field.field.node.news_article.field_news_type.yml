@@ -1,0 +1,28 @@
+uuid: d318a248-766b-45a6-b8df-ec2074a4fc1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_type
+    - node.type.news_article
+    - taxonomy.vocabulary.news_type
+id: node.news_article.field_news_type
+field_name: field_news_type
+entity_type: node
+bundle: news_article
+label: 'News type'
+description: 'The type of news article determines which news pages it appears in.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      news_type: news_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

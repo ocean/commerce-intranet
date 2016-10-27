@@ -1,0 +1,9 @@
+uuid: 089b68c1-03df-45d0-9d2f-c8d11deb2ede
+langcode: en
+status: true
+dependencies: {  }
+name: Urgency
+vid: urgency
+description: 'Urgency level of an alert.'
+hierarchy: 0
+weight: 0

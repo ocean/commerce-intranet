@@ -1,0 +1,28 @@
+uuid: 39d81f18-fb37-4dc8-8634-b286ae0ece86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_owner
+    - node.type.document_page
+    - taxonomy.vocabulary.organisation
+id: node.document_page.field_content_owner
+field_name: field_content_owner
+entity_type: node
+bundle: document_page
+label: 'Content owner'
+description: 'The Branch, Directorate or Division which has responsibility for this content.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      organisation: organisation
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

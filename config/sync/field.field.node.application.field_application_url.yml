@@ -1,0 +1,23 @@
+uuid: 7ff53707-dbd1-46d7-852e-93c1043d61d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_url
+    - node.type.application
+  module:
+    - link
+id: node.application.field_application_url
+field_name: field_application_url
+entity_type: node
+bundle: application
+label: 'Application URL'
+description: 'The URL of the application (all App Launcher apps are links to browser-based applications or sites).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

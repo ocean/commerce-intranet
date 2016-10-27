@@ -1,0 +1,9 @@
+uuid: 6604d43c-487d-4bef-9ab0-7c5b793f2f49
+langcode: en
+status: true
+dependencies: {  }
+name: Organisation
+vid: organisation
+description: 'Divisions, directorates and branches of Commerce.'
+hierarchy: 0
+weight: 0

@@ -1,0 +1,39 @@
+uuid: 16fb8b7b-87f4-4e92-91a9-d8ebbe882482
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.application.field_application_category
+    - field.field.node.application.field_application_url
+    - node.type.application
+  module:
+    - link
+    - user
+id: node.application.default
+targetEntityType: node
+bundle: application
+mode: default
+content:
+  field_application_category:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_application_url:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

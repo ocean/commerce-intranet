@@ -1,0 +1,28 @@
+uuid: ce6317e5-eab9-4ba5-8dda-442b0f6938bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.standard_content_page
+    - taxonomy.vocabulary.tags
+id: node.standard_content_page.field_tags
+field_name: field_tags
+entity_type: node
+bundle: standard_content_page
+label: Tags
+description: 'These tags will not be displayed on the page, but will be used by the search engine to improve search results.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

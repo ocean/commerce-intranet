@@ -1,0 +1,28 @@
+uuid: 6e6b00d2-1c29-4ece-8035-72e87f741ed5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subjects
+    - node.type.document_page
+    - taxonomy.vocabulary.subjects
+id: node.document_page.field_subjects
+field_name: field_subjects
+entity_type: node
+bundle: document_page
+label: Subjects
+description: 'A list of subjects covered by this content. These will be displayed at the bottom of the page, and will be used to organise the Knowledge Base.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subjects: subjects
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

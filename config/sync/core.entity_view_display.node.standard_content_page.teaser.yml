@@ -1,0 +1,34 @@
+uuid: 47709a45-4d09-4fcf-9a1a-7813bb5b02c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.standard_content_page.body
+    - field.field.node.standard_content_page.field_content_owner
+    - field.field.node.standard_content_page.field_subjects
+    - field.field.node.standard_content_page.field_summary
+    - field.field.node.standard_content_page.field_tags
+    - node.type.standard_content_page
+  module:
+    - text
+    - user
+id: node.standard_content_page.teaser
+targetEntityType: node
+bundle: standard_content_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  field_content_owner: true
+  field_subjects: true
+  field_summary: true
+  field_tags: true

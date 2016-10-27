@@ -1,0 +1,9 @@
+uuid: e80085f2-ecdf-47bb-a1c4-f71da23e0c78
+langcode: en
+status: true
+dependencies: {  }
+name: 'Application category'
+vid: application_category
+description: 'Category of the application.'
+hierarchy: 0
+weight: 0

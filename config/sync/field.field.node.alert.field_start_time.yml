@@ -1,0 +1,21 @@
+uuid: 7da26031-4855-452c-8782-24561d60edb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_start_time
+    - node.type.alert
+id: node.alert.field_start_time
+field_name: field_start_time
+entity_type: node
+bundle: alert
+label: 'Start time'
+description: 'The start time for the alert event.'
+required: false
+translatable: false
+default_value:
+  -
+    value: null
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

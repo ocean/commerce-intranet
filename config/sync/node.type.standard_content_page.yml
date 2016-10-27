@@ -1,0 +1,18 @@
+uuid: 855713a6-7964-46d1-90c1-91c4d6c84551
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Standard content page'
+type: standard_content_page
+description: 'For standard content pages, with a title and a rich-text body.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,9 @@
+uuid: 2d6a05ac-b75b-44ba-9b30-eacda16380ec
+langcode: en
+status: true
+dependencies: {  }
+name: Category
+vid: category
+description: 'The category of a document.'
+hierarchy: 0
+weight: 0

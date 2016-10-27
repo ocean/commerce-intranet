@@ -1,0 +1,19 @@
+uuid: 6be001d3-5219-4287-87d8-4aacfd8a44d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.standard_content_page
+id: node.standard_content_page.field_summary
+field_name: field_summary
+entity_type: node
+bundle: standard_content_page
+label: Summary
+description: 'A brief summary of the content below. This text will appear in search results and on content listing menu pages.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

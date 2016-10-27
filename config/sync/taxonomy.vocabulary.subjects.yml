@@ -1,0 +1,9 @@
+uuid: a42a89c8-a447-4d27-a8c8-b53aed60b20d
+langcode: en
+status: true
+dependencies: {  }
+name: Subjects
+vid: subjects
+description: 'A list of content subjects for building the Knowledge Base.'
+hierarchy: 0
+weight: 0

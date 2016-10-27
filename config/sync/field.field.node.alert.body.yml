@@ -1,0 +1,22 @@
+uuid: cb88b878-73e4-42c5-ae5e-423534002742
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.alert
+  module:
+    - text
+id: node.alert.body
+field_name: body
+entity_type: node
+bundle: alert
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

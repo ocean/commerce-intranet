@@ -1,0 +1,21 @@
+uuid: 3676f971-05de-4d93-83ec-d8a6a155cedc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_time
+    - node.type.alert
+id: node.alert.field_end_time
+field_name: field_end_time
+entity_type: node
+bundle: alert
+label: 'End time'
+description: 'The end time of the alert event.'
+required: false
+translatable: false
+default_value:
+  -
+    value: null
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

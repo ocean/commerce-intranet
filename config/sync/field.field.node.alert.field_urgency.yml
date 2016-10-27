@@ -1,0 +1,32 @@
+uuid: cdbea6c0-9e06-4955-90c7-c6f7f40230ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_urgency
+    - node.type.alert
+    - taxonomy.vocabulary.urgency
+  content:
+    - 'taxonomy_term:urgency:1a9dc783-02b2-40a2-b473-34133dae394f'
+id: node.alert.field_urgency
+field_name: field_urgency
+entity_type: node
+bundle: alert
+label: Urgency
+description: 'The urgency of the alert.'
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 1a9dc783-02b2-40a2-b473-34133dae394f
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      urgency: urgency
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

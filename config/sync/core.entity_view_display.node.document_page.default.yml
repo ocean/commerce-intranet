@@ -1,0 +1,67 @@
+uuid: ff313e23-4471-41d7-85c7-e0ec9911e0f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.document_page.body
+    - field.field.node.document_page.field_category
+    - field.field.node.document_page.field_content_owner
+    - field.field.node.document_page.field_document
+    - field.field.node.document_page.field_subjects
+    - field.field.node.document_page.field_summary
+    - field.field.node.document_page.field_tags
+    - node.type.document_page
+  module:
+    - file
+    - text
+    - user
+id: node.document_page.default
+targetEntityType: node
+bundle: document_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  field_category:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_content_owner:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_document:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+  field_subjects:
+    weight: 6
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_summary:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_tags: true

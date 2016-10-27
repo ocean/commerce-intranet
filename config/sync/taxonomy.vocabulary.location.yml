@@ -1,0 +1,9 @@
+uuid: 241ce4af-ce97-4609-9b68-9af8a81f4a3c
+langcode: en
+status: true
+dependencies: {  }
+name: Location
+vid: location
+description: 'Locations for alerts.'
+hierarchy: 0
+weight: 0

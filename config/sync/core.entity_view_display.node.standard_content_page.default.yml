@@ -1,0 +1,51 @@
+uuid: e6b243d2-97b4-4b5d-bb37-9831fc6438f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.standard_content_page.body
+    - field.field.node.standard_content_page.field_content_owner
+    - field.field.node.standard_content_page.field_subjects
+    - field.field.node.standard_content_page.field_summary
+    - field.field.node.standard_content_page.field_tags
+    - node.type.standard_content_page
+  module:
+    - text
+    - user
+id: node.standard_content_page.default
+targetEntityType: node
+bundle: standard_content_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  field_content_owner:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_subjects:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_summary:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_tags: true
