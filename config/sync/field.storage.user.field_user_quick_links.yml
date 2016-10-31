@@ -1,0 +1,19 @@
+uuid: 702c823b-aaa2-4cf4-ab13-3f1d9ffd13ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_user_quick_links
+field_name: field_user_quick_links
+entity_type: user
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_user_quick_links
+    - field.field.user.user.field_user_settings
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -16,7 +18,9 @@ bundle: user
 mode: default
 content:
   member_for:
-    weight: 5
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
@@ -25,4 +29,6 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+hidden:
+  field_user_quick_links: true
+  field_user_settings: true
