@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.alert.body
+    - field.field.node.alert.field_end_time
+    - field.field.node.alert.field_location
+    - field.field.node.alert.field_start_time
+    - field.field.node.alert.field_urgency
     - node.type.alert
   module:
     - text
@@ -17,10 +21,16 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 1
     settings:
       trim_length: 600
     third_party_settings: {  }
   links:
-    weight: 100
-hidden: {  }
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_end_time: true
+  field_location: true
+  field_start_time: true
+  field_urgency: true
