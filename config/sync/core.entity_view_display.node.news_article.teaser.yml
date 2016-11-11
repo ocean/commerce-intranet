@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.news_article.body
+    - field.field.node.news_article.field_feature_image
     - field.field.node.news_article.field_news_type
     - field.field.node.news_article.field_subjects
     - node.type.news_article
@@ -28,5 +29,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_feature_image: true
   field_news_type: true
   field_subjects: true
