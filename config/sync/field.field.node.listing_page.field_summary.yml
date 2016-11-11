@@ -1,0 +1,19 @@
+uuid: 75a42052-242e-4671-a247-9737b92741f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.listing_page
+id: node.listing_page.field_summary
+field_name: field_summary
+entity_type: node
+bundle: listing_page
+label: Summary
+description: 'Summary of the section this listing page covers, will be shown at the top of the page itself and on landing pages that link to this page.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

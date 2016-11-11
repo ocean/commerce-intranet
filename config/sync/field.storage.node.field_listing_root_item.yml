@@ -1,0 +1,20 @@
+uuid: 0c95919d-8850-414c-b5b1-cc3545902ca0
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_link_content
+    - node
+id: node.field_listing_root_item
+field_name: field_listing_root_item
+entity_type: node
+type: entity_reference
+settings:
+  target_type: menu_link_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

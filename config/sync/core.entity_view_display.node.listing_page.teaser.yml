@@ -1,0 +1,28 @@
+uuid: c189a0d8-df3a-4cc0-8f58-6a987613b276
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.listing_page.field_listing_root_item
+    - field.field.node.listing_page.field_summary
+    - node.type.listing_page
+  module:
+    - user
+id: node.listing_page.teaser
+targetEntityType: node
+bundle: listing_page
+mode: teaser
+content:
+  field_summary:
+    type: basic_string
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_listing_root_item: true

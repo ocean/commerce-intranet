@@ -1,0 +1,28 @@
+uuid: 57fb0b5a-97e0-43da-a073-ad02c8eb3269
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_listing_root_item
+    - node.type.listing_page
+id: node.listing_page.field_listing_root_item
+field_name: field_listing_root_item
+entity_type: node
+bundle: listing_page
+label: 'Listing Root Item'
+description: 'Choose the "root item", this page will show a listing of the items under it.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu_link_content'
+  handler_settings:
+    target_bundles:
+      menu_link_content: menu_link_content
+    sort:
+      field: weight
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
