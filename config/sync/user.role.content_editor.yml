@@ -1,0 +1,9 @@
+uuid: 6ec47432-3547-41f1-a3d7-89a7e79227ea
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content editor'
+weight: -8
+is_admin: null
+permissions: {  }
