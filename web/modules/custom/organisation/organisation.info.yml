@@ -1,8 +1,8 @@
-name: Organisation
+name: Commerce Intranet Organisation Setup
 type: module
 description: Generates and maintains the various organisational taxonomies and information for the Intranet.
 core: 8.x
 version: 1.0
-package: Intranet
+package: Commerce Intranet
 dependencies:
   - taxonomy

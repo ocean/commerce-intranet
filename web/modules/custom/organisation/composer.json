@@ -3,7 +3,7 @@
   "type": "drupal-module",
   "description": "Generates and maintains the various organisational taxonomies and information for the Intranet.",
   "keywords": ["Drupal"],
-  "license": "GPL-2.0+",
+  "license": "Apache-2.0",
   "homepage": "",
   "minimum-stability": "dev",
   "support": {
