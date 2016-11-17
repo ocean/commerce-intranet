@@ -1,0 +1,7 @@
+news_centre.main_controller_home:
+  path: '/news'
+  defaults:
+    _controller: '\Drupal\news_centre\Controller\MainController::home'
+    _title: 'News Centre'
+  requirements:
+    _permission: 'access content'

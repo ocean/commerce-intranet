@@ -1,0 +1,18 @@
+{% trans %}
+  <p>This is the news centre front page, rendered by a custom module from a Twig template.</p>
+{% endtrans %}
+
+<p>This page was loaded on {{ "now"|date("d F Y") }} at {{ "now"|date("H:i:s") }}.</p>
+
+<ul>
+{% for row in data if row.tag == "TITLE" %}
+  {% if row.value != "Announcements" %}
+    <li>{{ row.value|raw }}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+<pre>
+{#{ kint(data) }#}
+{#{ dump(data) }#}
+</pre>

@@ -1,0 +1,14 @@
+{
+  "name": "drupal/news_centre",
+  "type": "drupal-module",
+  "description": "A news centre for the Commerce Intranet.",
+  "keywords": ["Drupal"],
+  "license": "Apache-2.0",
+  "homepage": "",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "",
+    "source": ""
+  },
+  "require": { }
+}

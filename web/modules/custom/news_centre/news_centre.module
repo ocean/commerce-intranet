@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains news_centre.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function news_centre_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the news_centre module.
+    case 'help.page.news_centre':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A news centre for the Commerce Intranet.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function news_centre_theme() {
+  $theme['news_centre_home'] = [
+    'variables' => ['data' => NULL],
+    'template' => 'news_centre_home'
+  ];
+
+  return $theme;
+}
