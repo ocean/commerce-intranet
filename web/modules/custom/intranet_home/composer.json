@@ -1,0 +1,14 @@
+{
+  "name": "drupal/intranet_home",
+  "type": "drupal-module",
+  "description": "The home page of the Intranet, because modules are easier than pages.",
+  "keywords": ["Drupal"],
+  "license": "Apache-2.0",
+  "homepage": "",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "",
+    "source": ""
+  },
+  "require": { }
+}

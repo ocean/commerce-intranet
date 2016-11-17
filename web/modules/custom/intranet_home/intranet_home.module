@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains intranet_home.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function intranet_home_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the intranet_home module.
+    case 'help.page.intranet_home':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The home page of the Intranet, because modules are easier than pages.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

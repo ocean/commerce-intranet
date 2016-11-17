@@ -1,0 +1,8 @@
+name: Intranet Home
+type: module
+description: The home page of the Intranet, because modules are easier than pages.
+core: 8.x
+package: Commerce Intranet
+version: 1.0
+dependencies:
+  - taxonomy
