@@ -1,4 +1,4 @@
-name: Commerce Intranet News Centre
+name: News Centre
 type: module
 description: A news centre for the Commerce Intranet.
 core: 8.x
