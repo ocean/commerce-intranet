@@ -1,0 +1,7 @@
+name: Chartreux
+type: theme
+description: A theme for the Commerce Intranet based on the Chartreux design system by Cyrus.
+core: '8.x'
+package: Commerce Intranet
+version: '1.0.0'
+base theme: stable
