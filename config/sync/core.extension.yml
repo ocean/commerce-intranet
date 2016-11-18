@@ -25,6 +25,7 @@ module:
   help: 0
   history: 0
   image: 0
+  intranet_home: 0
   ldap_authentication: 0
   ldap_help: 0
   ldap_servers: 0
