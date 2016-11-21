@@ -29,5 +29,10 @@ function news_centre_theme() {
     'template' => 'news_centre_home'
   ];
 
+  $theme['news_centre_block'] = [
+    'variables' => ['data' => NULL],
+    'template' => 'news_centre_block'
+  ];
+
   return $theme;
 }
