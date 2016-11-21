@@ -5,3 +5,7 @@ core: '8.x'
 package: Commerce Intranet
 version: '1.0.0'
 base theme: stable
+screenshot: chartreux-logo.png
+libraries:
+  - chartreux/global-styling
+  - chartreux/global-scripts
