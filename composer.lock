@@ -1727,7 +1727,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/ldap",
-                "reference": "0625140a8e4775ef887a5400d0cc60479c666cce"
+                "reference": "9840e08765997f08f83004f75407328f268a6b76"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1735,7 +1735,6 @@
             "suggest": {
                 "drupal/authorization": "Required by drupal/ldap_authorization",
                 "drupal/core": "Required by drupal/ldap_views",
-                "drupal/entity": "Required by drupal/ldap_test",
                 "drupal/externalauth": "Required by drupal/ldap_user",
                 "drupal/feeds": "Required by drupal/ldap_feeds",
                 "drupal/ldap_query": "Required by drupal/ldap_views",
@@ -1749,12 +1748,10 @@
                     "dev-3.x": "3.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-3.0-alpha1+13-dev",
-                    "datestamp": "1475182439"
+                    "version": "8.x-3.0-alpha1+45-dev",
+                    "datestamp": "1478988539"
                 },
-                "patches_applied": {
-                    "Lengthen admin page input field for 'binddn' property.": "patches/ldap-lengthen_admin_input_field_for_binddn.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -1790,7 +1787,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/ldap"
             },
-            "time": "2016-09-29 20:50:15"
+            "time": "2016-11-12 22:05:21"
         },
         {
             "name": "drupal/pathauto",
