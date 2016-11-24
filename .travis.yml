@@ -34,6 +34,15 @@ before_install:
   - sudo update-ca-certificates --fresh
   - composer --verbose self-update
   - composer --version
+  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+  - source ~/.bashrc
+  # - nvm ls-remote
+  # - nvm install --lts node
+  # - nvm use --lts node
+  - curl -O -L -# https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+  - unzip ngrok-stable-linux-amd64.zip
+  - chmod +x ngrok
+  - sudo apt-get install jq
 
 install:
   - composer --verbose install
@@ -45,19 +54,38 @@ before_script:
 
 script:
   - cd $TRAVIS_BUILD_DIR/web
-  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) standard install_configure_form.update_status_module='array(FALSE,FALSE)'
+  # - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) standard install_configure_form.update_status_module='array(FALSE,FALSE)'
+  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config=../config/sync minimal install_configure_form.update_status_module='array(FALSE,FALSE)'
+  # - cd profiles
+  # - curl -O -L -# https://ftp.drupal.org/files/projects/config_installer-8.x-1.3.tar.gz
+  # - tar xzvf config_installer-8.x-1.3.tar.gz
+  # - cd ..
+  # - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config-dir=../config/sync config_installer install_configure_form.update_status_module='array(FALSE,FALSE)'
+  # - ./../vendor/bin/drush config-import --yes --source=../config/sync --skip-modules=devel,webprofiler,kint
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
   # - phantomjs --webdriver=4444 &
   - sleep 3
+  - $TRAVIS_BUILD_DIR/ngrok authtoken $NGROK_AUTH_TOKEN
+  - $TRAVIS_BUILD_DIR/ngrok http 8080 &
+  - sleep 5
+  - echo "Looking for URLs..."
+  - curl -s 'http://127.0.0.1:4040/api/tunnels' | jq -r '.tunnels[] | .public_url'
+  - curl -s 'http://127.0.0.1:4040/api/tunnels' | jq -r '.tunnels[0].public_url' > ngrok_url.txt
+  # - echo "Using this URL at GI ..."
+  # - cat ngrok_url.txt
+  - cat ./sites/default/settings.php
+  - sudo sed --in-place=-bak -e "s|//\$base_url|\$base_url = \'"$(cat ngrok_url.txt)"\'\;|" ./sites/default/settings.php
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # Skipping Database tests to see if other tests pass on HHVM
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # - curl -v -F "file=@build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt" --insecure https://file.io/?expires=1w
   # Quick front page screenshot test
-  - phantomjs ../tests/phantomjs/front_page.js
-  - mv front_page.png front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png
-  - curl -v -F "file=@front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png" --insecure https://file.io/?expires=1w
+  # - phantomjs ../tests/phantomjs/front_page.js
+  # - mv front_page.png front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png
+  # - curl -v -F "file=@front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png" --insecure https://file.io/?expires=1w
+  - curl -v "https://api.ghostinspector.com/v1/suites/$GHOST_SUITE_ID/execute/?apiKey=$GHOST_API_KEY&startUrl=$(cat ngrok_url.txt)&ciAdminPw=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt)" > ghostinspector.json
+  - cat ghostinspector.json | jq .
   - ./../vendor/bin/drush status
   # Skip Drupal Console ("drupal") testing as it's not supported with 8.1.x yet.
   # - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
