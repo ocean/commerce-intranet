@@ -55,16 +55,16 @@ before_script:
 script:
   - cd $TRAVIS_BUILD_DIR/web
   # - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) standard install_configure_form.update_status_module='array(FALSE,FALSE)'
-  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config=../config/sync minimal install_configure_form.update_status_module='array(FALSE,FALSE)'
-  - ./../vendor/bin/drush config-get system.config_directories
-  - ./../vendor/bin/drush config-list | grep -i director
+  # - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config=../config/sync minimal install_configure_form.update_status_module='array(FALSE,FALSE)'
+  # - sudo sed --in-place=-bak -e "s|\$config_directories = array\(\)\;|\$config_directories[\'sync\'] = \'\.\.//config//sync\'\;|" ./sites/default/settings.php
+  - cd profiles
+  - curl -O -L -# https://ftp.drupal.org/files/projects/config_installer-8.x-1.3.tar.gz
+  - tar xzvf config_installer-8.x-1.3.tar.gz
+  - cd ..
+  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config-dir=../config/sync config_installer install_configure_form.update_status_module='array(FALSE,FALSE)'
   - sudo sed --in-place=-bak -e "s|\$config_directories = array\(\)\;|\$config_directories[\'sync\'] = \'\.\.//config//sync\'\;|" ./sites/default/settings.php
-  # - cd profiles
-  # - curl -O -L -# https://ftp.drupal.org/files/projects/config_installer-8.x-1.3.tar.gz
-  # - tar xzvf config_installer-8.x-1.3.tar.gz
-  # - cd ..
-  # - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config-dir=../config/sync config_installer install_configure_form.update_status_module='array(FALSE,FALSE)'
-  # - ./../vendor/bin/drush config-import --yes --source=../config/sync --skip-modules=devel,webprofiler,kint
+  - sudo echo "$config_directories['sync'] = '../config/sync';" >> ./sites/default/settings.php
+  - ./../vendor/bin/drush config-import --yes --source=../config/sync --skip-modules=devel,webprofiler,kint
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
   # - phantomjs --webdriver=4444 &
   - sleep 3
@@ -80,7 +80,7 @@ script:
   - cat ./sites/default/settings.php
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
-  - ./../vendor/bin/phpunit -c core --testsuite=unit --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
+  # - ./../vendor/bin/phpunit -c core --testsuite=unit --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # Skipping Database tests to see if other tests pass on HHVM
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # - curl -v -F "file=@build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt" --insecure https://file.io/?expires=1w
