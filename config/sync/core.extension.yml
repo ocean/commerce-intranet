@@ -29,7 +29,6 @@ module:
   ldap_authentication: 0
   ldap_help: 0
   ldap_servers: 0
-  ldap_test: 0
   ldap_user: 0
   link: 0
   menu_ui: 0

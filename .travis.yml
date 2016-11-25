@@ -80,6 +80,7 @@ script:
   - cat ./sites/default/settings.php
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
+  # Just run all the PHPUnit tests.
   # - ./../vendor/bin/phpunit -c core --testsuite=unit --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # Skipping Database tests to see if other tests pass on HHVM
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
