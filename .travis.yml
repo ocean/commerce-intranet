@@ -55,10 +55,7 @@ before_script:
 
 script:
   - cd $TRAVIS_BUILD_DIR/web
-  - cd profiles
-  - curl -O -L -# https://ftp.drupal.org/files/projects/config_installer-8.x-1.3.tar.gz
-  - tar xzvf config_installer-8.x-1.3.tar.gz
-  - cd ..
+  - cd profiles && curl -O -L -# https://ftp.drupal.org/files/projects/config_installer-8.x-1.3.tar.gz && tar xzvf config_installer-8.x-1.3.tar.gz && cd ..
   - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) config_installer config_installer_sync_configure_form.sync_directory=../config/sync install_configure_form.update_status_module='array(FALSE,FALSE)'
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
   # - phantomjs --webdriver=4444 &
@@ -77,7 +74,7 @@ script:
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # Just run all the PHPUnit tests.
-  - ./../vendor/bin/phpunit -c core --testsuite=unit --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
+  # - ./../vendor/bin/phpunit -c core --testsuite=unit --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # Skipping Database tests to see if other tests pass on HHVM
   # - ./../vendor/bin/phpunit -c core --exclude-group Composer,Database,dblog --log-tap build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt
   # - curl -v -F "file=@build-log-tap-$(date +"%Y-%m-%d")-$TRAVIS_JOB_NUMBER.txt" --insecure https://file.io/?expires=1w
@@ -87,6 +84,7 @@ script:
   # - curl -v -F "file=@front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png" --insecure https://file.io/?expires=1w
   - curl -v "https://api.ghostinspector.com/v1/suites/$GHOST_SUITE_ID/execute/?apiKey=$GHOST_API_KEY&startUrl=$(cat ngrok_url.txt)&ciAdminPw=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt)" > ghostinspector.json
   - cat ghostinspector.json | jq .
+  # - if [ $(grep -c '"passing":false' ghostinspector.json) -ne 0 ]; then exit 1; fi
   - ./../vendor/bin/drush status
   # Skip Drupal Console ("drupal") testing as it's not supported with 8.1.x yet.
   # - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
@@ -95,3 +93,4 @@ script:
 
 notifications:
   email: false
+  webhooks: $NOTIFICATION_WEBHOOK_URL
