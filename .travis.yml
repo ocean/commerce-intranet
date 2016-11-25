@@ -68,14 +68,14 @@ script:
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
   # - phantomjs --webdriver=4444 &
   - sleep 3
-  # - $TRAVIS_BUILD_DIR/ngrok authtoken $NGROK_AUTH_TOKEN
-  # - $TRAVIS_BUILD_DIR/ngrok http 8080 &
+  - $TRAVIS_BUILD_DIR/ngrok authtoken $NGROK_AUTH_TOKEN
+  - $TRAVIS_BUILD_DIR/ngrok http 8080 &
   - sleep 5
-  # - echo "Looking for URLs..."
-  # - curl -s 'http://127.0.0.1:4040/api/tunnels' | jq -r '.tunnels[] | .public_url'
-  # - curl -s 'http://127.0.0.1:4040/api/tunnels' | jq -r '.tunnels[0].public_url' > ngrok_url.txt
-  # - echo "Using this URL at GI ..."
-  # - cat ngrok_url.txt
+  - echo "Looking for URLs..."
+  - curl -s 'http://127.0.0.1:4040/api/tunnels' | jq -r '.tunnels[] | .public_url'
+  - curl -s 'http://127.0.0.1:4040/api/tunnels' | jq -r '.tunnels[0].public_url' > ngrok_url.txt
+  - echo "Using this URL at GI ..."
+  - cat ngrok_url.txt
   # - sudo sed --in-place=-bak -e "s|//\$base_url|\$base_url = \'"$(cat ngrok_url.txt)"\'\;|" ./sites/default/settings.php
   - cat ./sites/default/settings.php
   # Skip core/tests/Drupal/Tests/ComposerIntegrationTest.php because web/ has no composer.json
@@ -89,8 +89,8 @@ script:
   # - phantomjs ../tests/phantomjs/front_page.js
   # - mv front_page.png front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png
   # - curl -v -F "file=@front_page-$(date +"%Y%m%d")-$TRAVIS_JOB_NUMBER.png" --insecure https://file.io/?expires=1w
-  # - curl -v "https://api.ghostinspector.com/v1/suites/$GHOST_SUITE_ID/execute/?apiKey=$GHOST_API_KEY&startUrl=$(cat ngrok_url.txt)&ciAdminPw=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt)" > ghostinspector.json
-  # - cat ghostinspector.json | jq .
+  - curl -v "https://api.ghostinspector.com/v1/suites/$GHOST_SUITE_ID/execute/?apiKey=$GHOST_API_KEY&startUrl=$(cat ngrok_url.txt)&ciAdminPw=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt)" > ghostinspector.json
+  - cat ghostinspector.json | jq .
   - ./../vendor/bin/drush status
   # Skip Drupal Console ("drupal") testing as it's not supported with 8.1.x yet.
   # - ./../vendor/bin/drupal init --override --verbose --uri http://127.0.0.1:8080 --no-interaction
