@@ -61,10 +61,10 @@ script:
   - curl -O -L -# https://ftp.drupal.org/files/projects/config_installer-8.x-1.3.tar.gz
   - tar xzvf config_installer-8.x-1.3.tar.gz
   - cd ..
-  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) --config-dir=../config/sync config_installer install_configure_form.update_status_module='array(FALSE,FALSE)'
-  - sudo sed --in-place=-bak -e "s|\$config_directories = array\(\)\;|\$config_directories[\'sync\'] = \'\.\.//config//sync\'\;|" ./sites/default/settings.php
-  - sudo echo "$config_directories['sync'] = '../config/sync';" >> ./sites/default/settings.php
-  - ./../vendor/bin/drush config-import --yes --source=../config/sync --skip-modules=devel,webprofiler,kint
+  - ./../vendor/bin/drush site-install --verbose --yes --db-url=mysql://root:@127.0.0.1:3306/drupal --account-pass=$(cat $TRAVIS_BUILD_DIR/admin_pw.txt) config_installer config_installer_sync_configure_form.sync_directory=../config/sync install_configure_form.update_status_module='array(FALSE,FALSE)'
+  # - sudo sed --in-place=-bak -e "s|\$config_directories = array\(\)\;|\$config_directories\[\'sync\'\] = \'\.\.//config//sync\'\;|" ./sites/default/settings.php
+  # - sudo echo "$config_directories\['sync'\] = '../config/sync';" >> ./sites/default/settings.php
+  # - ./../vendor/bin/drush config-import --yes --source=../config/sync --skip-modules=devel,webprofiler,kint
   - ./../vendor/bin/drush runserver http://127.0.0.1:8080 &
   # - phantomjs --webdriver=4444 &
   - sleep 3
